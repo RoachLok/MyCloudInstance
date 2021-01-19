@@ -1,0 +1,147 @@
+html {
+    overflow: auto;
+    overflow-x: hidden; 
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    height: 100vh;
+    font-family: "Roboto",sans-serif;
+}
+
+section {
+    height: 100vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+
+    scroll-snap-align: end;
+    scroll-snap-stop : normal;
+}
+
+.snap-scroll {
+    scroll-snap-align: start;
+    scroll-snap-stop : normal;
+}
+
+nav {
+    height: 4em;
+}
+
+.nav-btn {
+    margin-top: none;
+    border: none !important;
+    height: 5%;
+    height: 3em;
+    opacity: 100% !important;
+}
+
+.nav-signup {
+    max-width: 10vw;
+}
+
+.btn-signup {
+    font-size: 0.7rem;
+    width: 6.5vw;
+    max-width: 6.5vw;
+}
+
+.overlap {
+    z-index: 1500;
+    opacity: 80%;
+    margin-left: 2.5em;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+    background-color: #000000a9;
+}
+
+.carousel {
+    min-height: 220px !important;
+}
+
+.carousel-item {
+    max-height: 76vh;
+    min-height: 220px !important;
+}
+
+/* -- SECTION -- */
+.title {
+    margin-top: 6.5rem;
+    font-weight: 500;
+    opacity: 70%;
+    margin-left: 1rem;
+}
+
+.subtitle {
+    margin-top: 2.5rem;
+    font-weight: 300;
+}
+
+.text-col {
+    max-width: 550px;
+    margin-left: 1rem;
+    margin-left: 1rem;
+    text-align: justify;
+    text-justify: inter-word;
+    min-width: 350px !important;
+}
+
+.info-col {
+    min-width: 480px;
+}
+
+
+/* -- FOOTER -- */
+footer {
+    color: white;
+    background: #212121;
+
+    font-family: "Roboto",sans-serif;
+    
+    scroll-snap-align: end;
+    scroll-snap-stop : normal;
+}
+
+footer a{
+    color: white;
+}
+
+footer h5 {
+    font-weight: bold;
+    color: #07518f;
+    margin-top: 0.5rem;
+}
+
+.footer-title {
+    color: #ee9107;
+}
+
+.list-lash li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.list-lash li a {
+    display: inline-block;
+
+    background: linear-gradient(to right, #07518f 50%, white 50%);
+    
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 275ms ease;
+    text-decoration: none;
+}
+
+.list-lash li a:hover {
+    background-position: 0 100%;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* -- FOOTER END -- */
