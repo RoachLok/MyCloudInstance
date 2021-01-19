@@ -1,6 +1,5 @@
 # My Cloud Instance
-
-## A cloud computing platform for instance hosting and cloud shell.
+A cloud computing platform for instance hosting and cloud shell.
 ---
 
 ### Development checkpoints
