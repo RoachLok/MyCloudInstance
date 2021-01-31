@@ -1,0 +1,23 @@
+/*
+*   Source: https://mdbootstrap.com/snippets/jquery/ascensus/1727054#css-tab-view
+*/
+
+/*@media (min-width: 800px) and (max-width: 850px) {
+    .navbar:not(.top-nav-collapse) {
+        background: #212121!important;
+    }
+}*/
+
+.navbar {
+    background-color:rgba(0,0,0,.2)
+}
+
+.top-nav-collapse {
+    background-color:#212121;
+}
+
+@media only screen and (max-width:768px) {
+    .navbar {
+        background-color:#212121
+    }
+}
