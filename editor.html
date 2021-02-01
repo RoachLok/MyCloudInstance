@@ -11,7 +11,7 @@
 <div id="editor">
 // A c++ program
 
-#include <iostream>
+#include <iostream\>
 
 int main()
 {
@@ -19,10 +19,15 @@ int main()
 }</div>
 
 <script src="./src-min/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="./src-min/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+
 <script>
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/dracula");
     editor.session.setMode("ace/mode/c_cpp");
+    editor.setOptions({
+        enableBasicAutocompletion: true
+    });
 </script> 
 <script>
     function changeTheme(theme) {
