@@ -28,7 +28,7 @@
         <!-- MDB core JavaScript -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
         <!-- Local dependencies -->
-        <script type="text/javascript" src="./static/js/main.js"></script>
+        <script defer type="text/javascript" src="./static/js/main.js"></script>
         <script type="text/javascript" src="./static/js/nav.js"></script>
 
     </head>
@@ -39,7 +39,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup" onchange="toggleNavColor()">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup" name="nav-collapsers">
                 <div class="navbar-nav">
                     <a class="btn btn-outline-light nav-btn nav-link" href="#features"> Features </a>
                     <a class="btn btn-outline-light nav-btn nav-link" href="#howto"> How To </a>
@@ -49,9 +49,9 @@
                             Environments
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="./gnu.html">C++ GNU</a>
-                            <a class="dropdown-item" href="#">Jupyter Notebook</a>
-                            <a class="dropdown-item" href="#">Java</a>
+                            <a class="dropdown-item" href="./gnu.php">C++ GNU</a>
+                            <a class="dropdown-item" >Jupyter Notebook</a>
+                            <a class="dropdown-item" href="./java_editor.php">Java</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -69,12 +69,26 @@
                     <a class="btn btn-outline-light nav-btn nav-link"> docs </a>
                 </div>
             </div>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                <a class="btn btn-outline-light nav-link nav-btn btn-signup" href="signin.html"> Login </a>
-                <a class="btn btn-outline-light nav-link nav-btn btn-signup" href="signup.html"> Register </a>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup" name="nav-collapsers">
+                <a class="btn btn-outline-light nav-btn nav-link" href="signin.php"> Login </a>    
+                <a class="btn btn-outline-light nav-link nav-btn" href="signup.php"> Register </a>
             </div>
-
         </nav> 
+        <script>
+            if (window.innerWidth < 1000) {
+                const query = document.getElementsByName('nav-collapsers');
+                for (element of query) {
+                    element.style.backgroundColor = '#212121';
+                    element.style.opacity = '95%';
+                }
+            } else {
+                const query = document.getElementsByName('nav-collapsers');
+                for (element of query) {
+                    element.style.backgroundColor = 'transparent';
+                    element.style.opacity = '0%';
+                }
+            }
+        </script>
 
         <!-- Carousel -->
         <div id="carousel" class="carousel slide snap-scroll" data-ride="carousel">
@@ -86,31 +100,31 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="./static/img/caru_2.jpg" alt="First slide">
+                    <img class="d-block w-100" src="./static/img/caru_4.jpg" alt="First slide">
                     <div class="container">
                         <div class="carousel-caption text-left">
                             <h1>Simplicity as a Premise</h1>
                             <p>Start coding now without the need of registering.</p>
                             <p>
-                                <button class="btn btn-light">Start coding</button>
+                                <a class="btn btn-light" href="gnu.html">Start coding</a>
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="./static/img/caru_1.jpg" alt="Second slide">
+                    <img class="d-block w-100" src="./static/img/caru_1.png" alt="Second slide">
                     <div class="container">
                         <div class="carousel-caption text-left">
                             <h1>Do more</h1>
                             <p>Register now to access more free services.</p>
                             <p>
-                                <button class="btn btn-light">SIGN UP</button>
+                                <a class="btn btn-light" href="signup.php">SIGN UP</a>
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="./static/img/caru_2.jpg" alt="Third slide">
+                    <img class="d-block w-100" src="./static/img/caru_3.jpg" alt="Third slide">
                     <div class="container">
                         <div class="carousel-caption text-left">
                             <h1>Instance Hosting</h1>
@@ -122,13 +136,13 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="./static/img/caru_3.jpg" alt="Fourth slide">
+                    <img class="d-block w-100" src="./static/img/caru_2.png" alt="Fourth slide">
                     <div class="container">
                         <div class="carousel-caption text-left">
                             <h1>About Us</h1>
                             <p style="max-width: 50vw;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam libero et fermentum commodo. Vivamus maximus erat fermentum ex vulputate accumsan. Nam congue neque eget leo posuere, non ornare ex imperdiet.</p>
                             <p>
-                                <button class="btn btn-light">Go to About us</button>
+                                <a class="btn btn-light" href="about.html">Go to About us</a>
                             </p>
                         </div>
                     </div>
@@ -230,7 +244,7 @@
                     <h5>Contacto</h5>
                     <dl>
                         <dt>Address:</dt>
-                        <dd><a href="https://www.google.com/maps/place/Mulah,+Maldives/@2.9464588,73.5796558,16z/data=!3m1!4b1!4m5!3m4!1s0x3b387db8bde51311:0x5101633cf14e8bc9!8m2!3d2.9440625!4d73.5873853">An address</a></dd>
+                        <dd><a href="https://www.google.com/maps/place/Mulah,+Maldives/@2.9464588,73.5796558,16z/data=!3m1!4b1!4m5!3m4!1s0x3b387db8bde51311:0x5101633cf14e8bc9!8m2!3d2.9440625!4d73.5873853">Grand Line</a></dd>
                     </dl>
                     <dl>
                         <dt>e-Mail:</dt>
@@ -246,7 +260,7 @@
                 <span class="col-xl-3">
                     <h5>Links</h5>
                     <ul class="list-lash">
-                        <li><a href="#home">About</a></li>
+                        <li><a href="about.html">About</a></li>
                         <li><a href="#home">Projects</a></li>
                         <li><a href="#home">Blog</a></li>
                         <li><a href="#home">Contact</a></li>

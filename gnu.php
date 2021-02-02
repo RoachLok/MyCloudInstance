@@ -1,3 +1,22 @@
+<?php
+    require_once('db.php');
+    $hide=1;
+    $link = "gnu.html";
+    include ('session.php');
+    include ('userclass.php');
+    if ($hide == 0) {
+        $userClass = new userClass();
+	    $userDetails=$userClass->userDetails($session_id);
+        $user= $userDetails->username;
+        //Database Query for tabs
+        $db = getDB();
+        $st = $db->prepare("SELECT tabid,uname,contentType,content,tabTitle FROM tabs WHERE uname=:username AND contentType='c_cpp';");
+        $st->bindParam(':username',$user);
+        $st->execute();
+        $data = $st->fetchall(PDO::FETCH_ASSOC);
+        $tab=0;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -51,11 +70,7 @@
                         <a class="btn btn-outline-light nav-btn nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Settings
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Change this</a>
-                            <a class="dropdown-item" href="#">Change that</a>
-                            <a class="dropdown-item" href="#">Reset this</a>
-                        </div>
+
                     </li>
                     <li class="nav-item dropdown">
                         <a class="btn btn-outline-light nav-btn nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -75,7 +90,6 @@
                             <a class="dropdown-item" href="#">Linux Mint</a>
                             <a class="dropdown-item" href="#">Ubuntu Server</a>
                             <a class="dropdown-item" href="#">Windows Server</a>
-                            <a class="dropdown-item disabled" href="#">More to come...</a>
                         </div>
                     </li>
                     <a class="btn btn-outline-light nav-btn nav-link"> docs </a>
@@ -93,7 +107,7 @@
                 <span class="sidebar">
                     <ul class="sidebar-nav">
                         <li class="logo">
-                            <a href="./index.html" class="sidebar-link">
+                            <a href="./index.php" class="sidebar-link">
                                 <span class="link-text logo-text">Home</span>
                                 <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="angle-double-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-angle-double-right fa-w-14 fa-5x">
                                     <g class="fa-group">
@@ -103,9 +117,19 @@
                                 </svg>
                             </a>
                         </li>
-                
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">
+                           <a href="#" class="sidebar-link">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-user fa-w-14 fa-3x">
+                                    <g class="fa-group">
+                                        <path fill="currentColor" d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z" class="fa-secondary"></path>
+                                    </g>
+                                </svg>
+                                <span class="link-text">Logged as <?php echo $user; ?></span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="#" class="sidebar-link" onclick="compileFiles('<?php echo $user."', 'c_cpp"; ?>')">
                                 <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="cat" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-cat fa-w-16 fa-9x">
                                     <g class="fa-group">
                                         <path fill="currentColor" d="M371.7 238l-176-107c-15.8-8.8-35.7 2.5-35.7 21v208c0 18.4 19.8 29.8 35.7 21l176-101c16.4-9.1 16.4-32.8 0-42zM504 256C504 119 393 8 256 8S8 119 8 256s111 248 248 248 248-111 248-248zm-448 0c0-110.5 89.5-200 200-200s200 89.5 200 200-89.5 200-200 200S56 366.5 56 256z" class="fa-secondary"></path>
@@ -116,9 +140,9 @@
                         </li>
                 
                         <li class="sidebar-item">
-                            <a  href="#" id="composeButton" class="sidebar-link">
-                                <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="alien-monster" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-alien-monster fa-w-18 fa-9x">
-                                    <g class="fa-group" >
+                            <a href="#" id="composeButton" value="c_cpp" class="sidebar-link">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="alien-monster" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-alien-monster fa-w-18 fa-9x" style="transform: translate(6px, 0px);">
+                                    <g class="fa-group">
                                         <path fill="currentColor" d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm160-14.1v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z" class="fa-secondary"></path>
                                     </g>
                                 </svg>
@@ -127,29 +151,49 @@
                         </li>
                 
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">
+                            <a href="#" class="sidebar-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                 <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="space-station-moon-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-space-station-moon-alt fa-w-16 fa-5x">
                                     <g class="fa-group">
                                         <path fill="currentColor" d="M501.70312,224H448V160H368V96h48V66.67383A246.86934,246.86934,0,0,0,256,8C119.03125,8,8,119.0332,8,256a250.017,250.017,0,0,0,1.72656,28.26562C81.19531,306.76953,165.47656,320,256,320s174.80469-13.23047,246.27344-35.73438A250.017,250.017,0,0,0,504,256,248.44936,248.44936,0,0,0,501.70312,224ZM192,240a80,80,0,1,1,80-80A80.00021,80.00021,0,0,1,192,240ZM384,343.13867A940.33806,940.33806,0,0,1,256,352c-87.34375,0-168.71094-11.46094-239.28906-31.73633C45.05859,426.01953,141.29688,504,256,504a247.45808,247.45808,0,0,0,192-91.0918V384H384Z" class="fa-secondary"></path>
                                         <path fill="currentColor" d="M256,320c-90.52344,0-174.80469-13.23047-246.27344-35.73438a246.11376,246.11376,0,0,0,6.98438,35.998C87.28906,340.53906,168.65625,352,256,352s168.71094-11.46094,239.28906-31.73633a246.11376,246.11376,0,0,0,6.98438-35.998C430.80469,306.76953,346.52344,320,256,320Zm-64-80a80,80,0,1,0-80-80A80.00021,80.00021,0,0,0,192,240Zm0-104a24,24,0,1,1-24,24A23.99993,23.99993,0,0,1,192,136Z" class="fa-primary"></path>
                                     </g>
                                 </svg>
-                                <span class="link-text">Space</span>
+                                <span class="link-text">Files</span>
                             </a>
+                            <div class="dropdown-menu">
+                                <?php
+                                    if (count($data) > 0) {
+                                        foreach ($data as $row) {
+
+                                            $a = '<a class="dropdown-item" onclick="loadExistingTab';
+                                            $b = '('.$row['tabid'].',`'.$row['tabTitle'].'`)">'.$row['tabTitle'].'</a>';
+
+                                            echo $a.$b;
+                                        }
+                                    } else {
+                                        echo '<a class="dropdown-item disabled" href="#">No files</a>';
+                                    }
+                                ?>
+                            </div>
                         </li>
                 
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">
+                            <a href="#" class="sidebar-link" onclick="uploadFiles('<?php echo $user."', 'c_cpp"; ?>')">
                                 <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="space-shuttle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="svg-inline--fa fa-space-shuttle fa-w-20 fa-5x">
                                     <g class="fa-group">
                                         <path fill="currentColor" d="M32 416c0 35.35 21.49 64 48 64h16V352H32zm154.54-232h280.13L376 168C243 140.59 222.45 51.22 128 34.65V160h18.34a45.62 45.62 0 0 1 40.2 24zM32 96v64h64V32H80c-26.51 0-48 28.65-48 64zm114.34 256H128v125.35C222.45 460.78 243 371.41 376 344l90.67-16H186.54a45.62 45.62 0 0 1-40.2 24z" class="fa-secondary"></path>
                                         <path fill="currentColor" d="M592.6 208.24C559.73 192.84 515.78 184 472 184H186.54a45.62 45.62 0 0 0-40.2-24H32c-23.2 0-32 10-32 24v144c0 14 8.82 24 32 24h114.34a45.62 45.62 0 0 0 40.2-24H472c43.78 0 87.73-8.84 120.6-24.24C622.28 289.84 640 272 640 256s-17.72-33.84-47.4-47.76zM488 296a8 8 0 0 1-8-8v-64a8 8 0 0 1 8-8c31.91 0 31.94 80 0 80z" class="fa-primary"></path>
                                     </g>
                                 </svg>
-                                <span class="link-text">Shuttle</span>
+                                <span class="link-text">Upload</span>
                             </a>
                         </li>
-                
+                   <!-- <li class="sidebar-item">
+                            <a href="logout.php" class="sidebar-link">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sign-out-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-sign-out-alt fa-w-16 fa-3x"><path fill="currentColor" d="M497 273L329 441c-15 15-41 4.5-41-17v-96H152c-13.3 0-24-10.7-24-24v-96c0-13.3 10.7-24 24-24h136V88c0-21.4 25.9-32 41-17l168 168c9.3 9.4 9.3 24.6 0 34zM192 436v-40c0-6.6-5.4-12-12-12H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h84c6.6 0 12-5.4 12-12V76c0-6.6-5.4-12-12-12H96c-53 0-96 43-96 96v192c0 53 43 96 96 96h84c6.6 0 12-5.4 12-12z" class="fa-secondary"></path></svg>
+                                <span class="link-text">Logout</span>
+                            </a>
+                        </li> -->
                         <li class="sidebar-item" id="themeButton">
                             <a href="#" class="sidebar-link">
                                 <svg class="theme-icon" id="lightIcon" aria-hidden="true" focusable="false" data-prefix="fad" data-icon="moon-stars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-moon-stars fa-w-16 fa-7x">
@@ -180,29 +224,25 @@
                             <a id="composeButton" class="nav-link"></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#iframe1" role="tab" aria-controls="iframe1" aria-selected="true">Untitled.cpp<button class="close closeTab tab-icon pl-3" type="button">×</button></a>
+                            <a class="nav-link active" data-toggle="tab" href="#iframe1" role="tab" aria-controls="iframe1" aria-selected="true" name="code-tab">main.cpp<button class="close closeTab tab-icon pl-3" type="button">×</button></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#iframe2" role="tab" aria-controls="iframe2" aria-selected="false">Untitled - 2.cpp<button class="close closeTab tab-icon pl-3" type="button" >×</button></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#iframe3" role="tab" aria-controls="iframe2" aria-selected="false">Untitled - 3.cpp<button class="close closeTab tab-icon pl-3" type="button" >×</button></a>
+                            <a class="nav-link" data-toggle="tab" href="#iframe2" role="tab" aria-controls="iframe2" aria-selected="false" name="code-tab">Header.cpp<button class="close closeTab tab-icon pl-3" type="button" >×</button></a>
                         </li>
                     </ul>
-                    <div class="tab-content code-frame" id="nav-tabContent">
-                        <iframe id="iframe1" class="code-frame tab-pane fade show active" role="tabpanel" src="./editor.html?hello" name="test"></iframe>
-                        <iframe id="iframe2" class="code-frame tab-pane fade" role="tabpanel" src="./editor.html" name="test"></iframe>
-                        <iframe id="iframe3" class="code-frame tab-pane fade" role="tabpanel" src="./editor.html" name="test"></iframe>
+                    <div class="tab-content code-frame" id="frames-container">
+                        <iframe id="iframe1" class="code-frame tab-pane fade show active" role="tabpanel" src="./editor.php?tab&tabId=3&contentType=c_cpp" name="test"></iframe>
+                        <iframe id="iframe2" class="code-frame tab-pane fade" role="tabpanel" src="./editor.php?tab&tabId=12&contentType=c_cpp" name="test"></iframe>
                     </div>
                 </div>
-
-            </section>
-            <section class="shell-container">
-
-                  
             </section>
         </section>
-           
+        
+        <pre class="shell-container border border-secondary rounded" id="output-container" style="max-height: 283px;">
+        <strong>CONSOLE OUTPUT:</strong>
+
+        </pre>
+        
         <!-- Footer -->
         <footer>
             <div class="container"><div class="row">

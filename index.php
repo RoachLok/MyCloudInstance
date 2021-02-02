@@ -1,3 +1,17 @@
+<?php
+    require_once('db.php');
+    $hide=1;
+    $link = "index.html";
+    include ('session.php');
+    include ('userclass.php');
+    if ($hide == 0) {
+        $userClass = new userClass();
+	    $userDetails=$userClass->userDetails($session_id);
+        $user= $userDetails->username;
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -28,7 +42,7 @@
         <!-- MDB core JavaScript -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
         <!-- Local dependencies -->
-        <script type="text/javascript" src="./static/js/main.js"></script>
+        <script defer type="text/javascript" src="./static/js/main.js"></script>
         <script type="text/javascript" src="./static/js/nav.js"></script>
 
     </head>
@@ -39,8 +53,8 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup" onchange="toggleNavColor()">
-                <div class="navbar-nav">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup" name="nav-collapsers">
+                <div class="navbar-nav" name="nav-collapsers">
                     <a class="btn btn-outline-light nav-btn nav-link" href="#features"> Features </a>
                     <a class="btn btn-outline-light nav-btn nav-link" href="#howto"> How To </a>
 
@@ -49,9 +63,9 @@
                             Environments
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="./gnu.html">C++ GNU</a>
-                            <a class="dropdown-item" href="#">Jupyter Notebook</a>
-                            <a class="dropdown-item" href="#">Java</a>
+                            <a class="dropdown-item" href="./gnu.php">C++ GNU</a>
+                            <a class="dropdown-item" >Jupyter Notebook</a>
+                            <a class="dropdown-item" href="./java_editor.php">Java</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -69,12 +83,26 @@
                     <a class="btn btn-outline-light nav-btn nav-link"> docs </a>
                 </div>
             </div>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                <a class="btn btn-outline-light nav-link nav-btn btn-signup" href="signin.html"> Login </a>
-                <a class="btn btn-outline-light nav-link nav-btn btn-signup" href="signup.html"> Register </a>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup" name="nav-collapsers" >
+                <a class="btn btn-outline-light nav-btn nav-link"> Hello <?php echo $user; ?> </a>    
+                <a class="btn btn-outline-light nav-btn nav-link" href="logout.php"> Logout </a>    
             </div>
-
         </nav> 
+        <script>
+            if (window.innerWidth < 1000) {
+            const query = document.getElementsByName('nav-collapsers');
+            for (element of query) {
+                element.style.backgroundColor = '#212121';
+                element.style.opacity = '93%';
+            }
+            } else {
+                const query = document.getElementsByName('nav-collapsers');
+                for (element of query) {
+                    element.style.backgroundColor = 'transparent';
+                    element.style.opacity = '100%';
+                }
+            }
+        </script>
 
         <!-- Carousel -->
         <div id="carousel" class="carousel slide snap-scroll" data-ride="carousel">
@@ -86,31 +114,31 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="./static/img/caru_2.jpg" alt="First slide">
+                    <img class="d-block w-100" src="./static/img/caru_4.jpg" alt="First slide">
                     <div class="container">
                         <div class="carousel-caption text-left">
                             <h1>Simplicity as a Premise</h1>
                             <p>Start coding now without the need of registering.</p>
                             <p>
-                                <button class="btn btn-light">Start coding</button>
+                                <a class="btn btn-light" href="gnu.php">Start coding</a>
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="./static/img/caru_1.jpg" alt="Second slide">
+                    <img class="d-block w-100" src="./static/img/caru_1.png" alt="Second slide">
                     <div class="container">
                         <div class="carousel-caption text-left">
                             <h1>Do more</h1>
                             <p>Register now to access more free services.</p>
                             <p>
-                                <button class="btn btn-light">SIGN UP</button>
+                                <button class="btn btn-light">ALREADY REGISTERED</button>
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="./static/img/caru_2.jpg" alt="Third slide">
+                    <img class="d-block w-100" src="./static/img/caru_3.jpg" alt="Third slide">
                     <div class="container">
                         <div class="carousel-caption text-left">
                             <h1>Instance Hosting</h1>
@@ -122,13 +150,13 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="./static/img/caru_3.jpg" alt="Fourth slide">
+                    <img class="d-block w-100" src="./static/img/caru_2.png" alt="Fourth slide">
                     <div class="container">
                         <div class="carousel-caption text-left">
                             <h1>About Us</h1>
                             <p style="max-width: 50vw;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam libero et fermentum commodo. Vivamus maximus erat fermentum ex vulputate accumsan. Nam congue neque eget leo posuere, non ornare ex imperdiet.</p>
                             <p>
-                                <button class="btn btn-light">Go to About us</button>
+                                <a class="btn btn-light" href="about.html">Go to About us</a>
                             </p>
                         </div>
                     </div>

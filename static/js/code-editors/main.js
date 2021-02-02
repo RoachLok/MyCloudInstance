@@ -3,16 +3,6 @@ var currentTab;
 var composeCount = 0;
 //initilize tabs
 $(function() {
-
-  //when ever any tab is clicked this method will be call
-  $("#myTab").on("click", "a", function(e) {
-    e.preventDefault();
-
-    $(this).tab('show');
-    $currentTab = $(this);
-  });
-
-
   registerComposeButtonEvent();
   registerCloseEvent();
 });
@@ -23,32 +13,47 @@ function registerComposeButtonEvent() {
   $('#composeButton').click(function(e) {
     e.preventDefault();
 
-    var tabId = "compose" + composeCount; //this is id on tab content div where the 
+    var tabId = "New_" + composeCount; //this is id on tab content div where the 
     composeCount = composeCount + 1; //increment compose count
 
     
     $('.nav-tabs').append(` <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#` + tabId + `" role="tab" aria-selected="false">`+ tabId +`.cpp<button class="close closeTab tab-icon pl-3" type="button" >×</button></a>
+                              <a name="code-tab" class="nav-link" data-toggle="tab" contenteditable="true" href="#` + tabId + `" role="tab" aria-selected="false" >`+ tabId +`<button class="close closeTab tab-icon pl-3" type="button" >×</button></a>
                             </li>`);
     
-    $('.tab-content').append('<iframe id='+ tabId +' class="code-frame tab-pane fade" role="tabpanel" src="./editor.html" name="test"></iframe>');
-
-    craeteNewTabAndLoadUrl("", "./SamplePage.html", "#" + tabId);
+    $('#frames-container').append(`<iframe id="${tabId}" class="code-frame tab-pane fade" role="tabpanel" src="./editor.php?tab&tabId=3&contentType=c_cpp"></iframe>`);
 
     $(this).tab('show');
 
     showTab(tabId);
-    registerCloseEvent();
+    registerCloseEvent(); 
     //$('#'+ tabId).trigger('click');
   });
 
+  $('#composeButton-java').click(function(e) {
+    e.preventDefault();
+
+    var tabId = "New_" + composeCount; //this is id on tab content div where the 
+    composeCount = composeCount + 1; //increment compose count
+
+    $('.nav-tabs').append(` <li class="nav-item">
+                              <a name="code-tab" class="nav-link" data-toggle="tab" contenteditable="true" href="#` + tabId + `" role="tab" aria-selected="false" >`+ tabId +`<button class="close closeTab tab-icon pl-3" type="button" >×</button></a>
+                            </li>`);
+    
+    $('#frames-container').append(`<iframe id="${tabId}" class="code-frame tab-pane fade" role="tabpanel" src="./editor.php?tab&tabId=10&contentType=java"></iframe>`);
+
+    $(this).tab('show');
+
+    showTab(tabId);
+    registerCloseEvent(); 
+    //$('#'+ tabId).trigger('click');
+  });
 }
 
 //this method will register event on close icon on the tab..
 function registerCloseEvent() {
 
   $(".closeTab").click(function() {
-
     //there are multiple elements which has .closeTab icon so close the tab whose close icon is clicked
     var tabContentId = $(this).parent().attr("href");
     $(this).parent().parent().remove(); //remove li of tab
@@ -67,21 +72,8 @@ function getCurrentTab() {
   return currentTab;
 }
 
-//This function will create a new tab here and it will load the url content in tab content div.
-function craeteNewTabAndLoadUrl(parms, url, loadDivSelector) {
-
-  $("" + loadDivSelector).load(url, function(response, status, xhr) {
-    if (status == "error") {
-      var msg = "Sorry but there was an error getting details ! ";
-      $("" + loadDivSelector).html(msg + xhr.status + " " + xhr.statusText);
-      $("" + loadDivSelector).html("Load Ajax Content Here...");
-    }
-  });
-
-}
-
 //this will return element from current tab
-//example : if there are two tabs having  textarea with same id or same class name then when $("#someId") whill return both the text area from both tabs
+//example : if there are two tabs having textarea with same id or same class name then when $("#someId") whill return both the text area from both tabs
 //to take care this situation we need get the element from current tab.
 function getElement(selector) {
   var tabContentId = $currentTab.attr("href");
@@ -89,10 +81,93 @@ function getElement(selector) {
 
 }
 
-
 function removeCurrentTab() {
   var tabContentId = $currentTab.attr("href");
   $currentTab.parent().remove(); //remove li of tab
   $('#myTab a:last').tab('show'); // Select first tab
   $(tabContentId).remove(); //remove respective tab content
+}
+
+function loadExistingTab(tabId, tabTitle) {
+  let tabTitle_clean = tabTitle.replace('.', '');
+
+  let contentType = 'c_cpp';
+  if (tabTitle_clean.endsWith('java')) {
+    contentType = 'java';
+  }
+
+  let id = (tabTitle_clean + tabId).replaceAll(' ', '');
+  $('.nav-tabs').append(` <li class="nav-item"> 
+  <a name="code-tab" class="nav-link" data-toggle="tab" href="#` + id + `" role="tab" aria-selected="false" >`+ tabTitle +`<button class="close closeTab tab-icon pl-3" type="button">×</button></a>
+  </li>`);
+
+
+  $('#frames-container').append(`<iframe id="${id}" class="code-frame tab-pane fade" role="tabpanel" src="./editor.php?tab&tabId=${tabId}&contentType=${contentType}"></iframe>`);
+
+
+  showTab(id);
+  registerCloseEvent();
+}
+
+function uploadFiles(username, contentType) {
+  let iframes = document.getElementsByTagName('iframe');
+  let tabs    = document.getElementsByName('code-tab');
+
+  let tab_title = '';
+  let texts = [];
+  for (iframe of iframes) {
+    tab_title = tabs[texts.length].innerText
+    texts.push({
+      tabTitle      :  tab_title.substring(0, tab_title.length-2),
+      uname         :  username,
+      contentType   :  contentType,
+      content       :  iframe.contentWindow.getEditorText()
+    });
+  }
+
+  // Create a request variable and assign a new XMLHttpRequest object to it.
+  const request = new XMLHttpRequest();
+
+  // Open a new connection, using the POST request on the URL endpoint.
+  request.open('POST', './upload_files.php', true);
+
+  request.onload = function () {  // Process response somehow // A json can also be retrieved. 
+    console.log(this.response);
+  }
+
+  // Send request
+  request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  request.send(JSON.stringify(texts));
+}
+
+function compileFiles(username, contentType) {
+  let iframes = document.getElementsByTagName('iframe');
+  let tabs    = document.getElementsByName('code-tab');
+
+  let tab_title = '';
+  let texts = [];
+  for (iframe of iframes) {
+    tab_title = tabs[texts.length].innerText
+    texts.push({
+      tabTitle      :  tab_title.substring(0, tab_title.length-2),
+      uname         :  username,
+      contentType   :  contentType,
+      content       :  iframe.contentWindow.getEditorText()
+    });
+  }
+
+  // Create a request variable and assign a new XMLHttpRequest object to it.
+  const request = new XMLHttpRequest();
+
+  // Open a new connection, using the POST request on the URL endpoint.
+  request.open('POST', './compile_files.php', true);
+
+  request.onload = function () {  // Process response somehow // A json can also be retrieved. 
+    let output_container = document.getElementById('output-container');
+    output_container.innerHTML += this.response;
+  }
+
+  // Send request
+  request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  request.send(JSON.stringify(texts));
 }
