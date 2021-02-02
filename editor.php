@@ -44,6 +44,7 @@
 </div>
 
 <script src="./src-min/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="./src-min/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
 <script>
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/dracula");
