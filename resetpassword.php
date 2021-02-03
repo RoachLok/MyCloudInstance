@@ -3,6 +3,8 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 require 'vendor/autoload.php';
 include_once('db.php');
+$sent = false;
+
 if(isset($_POST['submit'])) {
     $email = $_POST['email'];
       // Database Query for users
@@ -35,23 +37,31 @@ if(isset($_POST['submit'])) {
             $mail->addAddress($email);           // Add a recipient
             $mail->isHTML(true);
             $mail->Subject = '[Password Recovery] - My Cloud Instance';
-            $mail->Body    = 'http://rocho.duckdns.org/MyCloudInstance/resetmypassword.php?userid='.$id.'&mdcode='.$code;
+            $mail->Body    =  "<p> This email was sent to you because someone requested a password change in your account. <br>
+            If you did not request this password change please ignore this message. <br><br>If it was you, click on the link below to continue with the process.<br><br>
+
+            http://rocho.duckdns.org/MyCloudInstance/resetmypassword.php?userid=".$id.'&mdcode='.$code.'</p>';
+            $mail->IsHTML(true); 
 
             $mail->send();
 
-            $error = '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>SUCCESS!</strong> Email sent! 
+            $error = '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>SUCCESS!</strong> Check your inbox for further details. 
                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
+                               $sent = true;
         } catch(Exception $e){
-            $error = $error_msg_1.' Error, email not sent!'.$error_msg_2;
+            $error = $error_msg_1.' Email not sent!'.$error_msg_2;
+            $sent = true;
         }
     } else {
         if(isset($_POST['submit'])) {
-            $error = $error_msg_1.' <strong>Sorry!</strong>  this email not found.'.$error_msg_2;
+            $error = $error_msg_1.' Email not found.'.$error_msg_2;
+            $sent = true;
             }
     } 
 } else {
         if(isset($_POST['submit'])) {
-            $error = $error_msg_1.' <strong>Sorry!</strong>  this email not found.'.$error_msg_2;
+            $error = $error_msg_1.' Email not found.'.$error_msg_2;
+            $sent = true;
             }
 }
 ?>
@@ -60,8 +70,8 @@ if(isset($_POST['submit'])) {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=0.75" />
-    <link rel="icon" href="./sources/ico.png" />
-    <title>Login</title>
+    <link rel="icon" href="./static/img/ico.png" />
+    <title>Password Reset</title>
 
     <!-- Bootstrap core CSS -->
     <link
@@ -78,14 +88,19 @@ if(isset($_POST['submit'])) {
       href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css"
       rel="stylesheet"
     />
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <!-- Stylesheet -->
-    <link href="./sources/css/signin.css" rel="stylesheet" />
+    <link href="./static/css/signin.css" rel="stylesheet" />
   </head>
   <body class="text-center">
             <form class="form-signin" method="POST" name="resetpass">
-              <img class="mb-4" src="./sources/ico.png" alt="" width="72" height="72" />
+              <img class="mb-4" src="./static/img/ico.png" alt="" width="72" height="72" />
               <h1 class="h3 mb-3 font-weight-normal">Reset Password</h1>
               <label for="inputEmail" class="sr-only">Insert your email address</label>
+              <?php if ($sent) echo $error; ?>
               <input type="text" id="inputEmail" class="form-control" placeholder="Email" name="email" required autofocus="true"/>
               <input
                 type="submit" value="Reset Password" name="submit" class="btn btn-lg btn-primary btn-block">

@@ -43,7 +43,7 @@
     <?php
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
-    require 'vendor/autoload.php';
+    require('vendor/autoload.php');
     require('db.php');
     $error = "";
     $error_msg_1 = '<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Form error!</strong>';
@@ -76,7 +76,7 @@
                 $count=$st->rowCount();
                 if($count<1){
                     $verify_hash= md5(rand(0,9999));
-                    $stmt = $db->prepare("INSERT INTO users(username,email,password,birthday,gender,verify,verify_hash) VALUES (:username,:email,:password,:birthday,:gender,1,:verify_hash)");
+                    $stmt = $db->prepare("INSERT INTO users(username,email,password,birthday,gender,verify,verify_hash) VALUES (:username,:email,:password,:birthday,:gender,0,:verify_hash)");
                     $stmt->bindParam("username", $username,PDO::PARAM_STR) ; //username bind
                     $stmt->bindParam("email", $email,PDO::PARAM_STR) ; //email bind
                     $hash_password= hash('sha256', $password); //Password encryption
@@ -87,9 +87,10 @@
                     $stmt->execute();
                     $uid=$db->lastInsertId(); // Last inserted row id
                     $db = null;
-                    $error = '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>SUCCESS!</strong> You are succesfully registered! Please, check your email and verify your account. 
-                               <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
+                    $error = '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Registering was successful.</strong> Email verification needed, please check your email to verify. 
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
                     $mail = new PHPMailer();
+
                     try {
                         $mail->SMTPDebug = 0;                   // Enable verbose debug output
                         $mail->isSMTP();                        // Set mailer to use SMTP
@@ -102,14 +103,19 @@
                         $mail->setFrom('mycloudinstance.contact@gmail.com');           // Set sender of the mail
                         $mail->addAddress($email);           // Add a recipient
                         $mail->isHTML(true);
-                        $mail->Subject = '[Password Recovery] - My Cloud Instance';
-                        $mail->Body    = 'http://rocho.duckdns.org/MyCloudInstance/verify.php?registeremail='.$email.'&hashverify='.$verify_hash;
+                        $mail->Subject = '[Email Verification] - My Cloud Instance';
+                        $mail->Body    = '<p>Hello '.$username.'. Please verify your email by clicking on the link below.<br><br>
+                                            
+                                        http://rocho.duckdns.org/MyCloudInstance/verify.php?registeremail='.$email.'&hashverify='.$verify_hash.'</p>';
+
+                        $mail->IsHTML(true); 
 
                         $mail->send();
                         
                     } catch(Exception $e){
                         $error = $error_msg_1.' Error, email not sent!'.$error_msg_2;
                     }
+
                 } else{
                     $error = $error_msg_1.' Username or email already registered!'.$error_msg_2;
                 }

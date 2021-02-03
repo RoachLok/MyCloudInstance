@@ -53,8 +53,34 @@ if (isset($_GET['userid'])) {
                 usleep(5000);
                 header("Location: signin.php");
             }
-            echo '<form class="form-signin" method="POST" name="resetpass">
-              <img class="mb-4" src="./sources/ico.png" alt="" width="72" height="72" />
+            echo '
+            <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.75" />
+    <link rel="icon" href="./static/img/ico.png" />
+    <title>Reset Password </title>
+            <!-- Bootstrap core CSS -->
+            <link
+              href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
+              rel="stylesheet"
+            />
+            <!-- Google Fonts -->
+            <link
+              rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+            />
+            <!-- Material Design Bootstrap -->
+            <link
+              href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css"
+              rel="stylesheet"
+            />
+            <!-- Stylesheet -->
+            <link href="./static/css/signin.css" rel="stylesheet" />
+            
+            <form class="form-signin" method="POST" name="resetpass">
+              <img class="mb-4" src="./static/img/ico.png" alt="" width="72" height="72" />
               <h1 class="h3 mb-3 font-weight-normal">Reset Password</h1>
               <label for="inputEmail" class="sr-only">Insert new password</label>
               <input type="password" id="inputNewpass" class="form-control" placeholder="New password" name="password" required autofocus="true"/>
