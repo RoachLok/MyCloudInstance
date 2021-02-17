@@ -274,7 +274,7 @@
                 <span class="col-xl-3">
                     <h5>Links</h5>
                     <ul class="list-lash">
-                        <li><a href="#home">About</a></li>
+                        <li><a href="about.html">About</a></li>
                         <li><a href="#home">Projects</a></li>
                         <li><a href="#home">Blog</a></li>
                         <li><a href="#home">Contact</a></li>
