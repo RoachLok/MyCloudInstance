@@ -1,8 +1,8 @@
-<img src="http://www.mycloudinstance.cf/static/img/logo.png" style="display: block; margin-left: auto; margin-right: auto;"/>
-<h1 style="text-align: center;"> MyCloudInstance </h1>
+<p align="center"> <img src="http://www.mycloudinstance.cf/static/img/logo.png"/> </p>
+<p align="center"> <h1> MyCloudInstance </h1> </p>
 
-<p style="text-align: center; font-weight: bold;"> A cloud computing platform for instance hosting, cloud shell's and coding resources.</p>
-<p style="text-align: center;"> Now a Laravel project.</p>
+<p align="center">A cloud computing platform for instance hosting, cloud shell's and coding resources.</p>
+<p align="center">Now a Laravel project.</p>
 
 
 ### Main Development checkpoints
