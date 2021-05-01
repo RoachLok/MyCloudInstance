@@ -1,17 +1,29 @@
-# My Cloud Instance
-A cloud computing platform for instance hosting and cloud shell.
----
+<img src="http://www.mycloudinstance.cf/static/img/logo.png" style="display: block; margin-left: auto; margin-right: auto;"/>
+<h1 style="text-align: center;"> MyCloudInstance </h1>
 
-### Development checkpoints
+<p style="text-align: center; font-weight: bold;"> A cloud computing platform for instance hosting, cloud shell's and coding resources.</p>
+<p style="text-align: center;"> Now a Laravel project.</p>
 
- +  Easy to use and attractive homepage.
- +  User-friendly dashboard from where to manage instances and or IDE's.
- +  Signup and login platform.
+
+### Main Development checkpoints
+
+#### Done:
+ +  Signup and login platform, user verification and recovery.
  +  DB for user related data storing.
- +  Platform for retrieving forgotten passwords.
- +  C++ GNU programming environment.
- +  iPyNB   programming environment.
- +  Linux instance.
- +  Payment gateway for plan purchasing and payment tracking.
- +  User manual.
+
+#### In progress:
+ +  User-friendly dashboard from where to manage instances, storage, profile, etc..
+ +  C++ GNU, java and more programming environments.
+ +  Easy to use and attractive interface.
+ +  User location heatmap to track low population density areas (INE).
+
+#### To Do:
+ +  Virtual instances.
+ +  Cloud shell.
+ +  Payment gateways and payment tracking.
+ +  User manuals.
  +  Ticket support system.
+ +  Courses platform.
+ +  Review system with sentiment analysis.
+ +  Demand analysis (Youtube / StackOverflow).
+ +  Service scoring.
