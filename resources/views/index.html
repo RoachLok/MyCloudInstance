@@ -18,6 +18,7 @@
         <link href="./static/css/style.css" rel="stylesheet">
         <link href="./static/css/product.css" rel="stylesheet">
         <link href="./static/css/nav.css" rel="stylesheet">
+        <link href="./static/css/footer.css" rel="stylesheet">
         
         <!-- JQuery -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -41,21 +42,20 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup" name="nav-collapsers">
                 <div class="navbar-nav">
-                    <a class="btn btn-outline-light nav-btn nav-link" href="#features"> Features </a>
-                    <a class="btn btn-outline-light nav-btn nav-link" href="#howto"> How To </a>
-
+                    <a class="btn btn-outline-white nav-btn nav-link" href="#features"> Features </a>
                     <li class="nav-item dropdown">
-                        <a class="btn btn-outline-light nav-btn nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Environments
+                        <a class="btn btn-outline-white nav-btn nav-link dropdown-toggle" href="#" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Coding
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="./gnu">C++ GNU</a>
+                            <a class="dropdown-item" href="./gnu.php">C++ GNU</a>
                             <a class="dropdown-item" >Jupyter Notebook</a>
-                            <a class="dropdown-item" href="./java_editor">Java</a>
+                            <a class="dropdown-item" href="./java_editor.php">Java</a>
                         </div>
                     </li>
+                    <a class="btn btn-outline-white nav-btn nav-link" href="#education"> Education </a>
                     <li class="nav-item dropdown">
-                        <a class="btn btn-outline-light nav-btn nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="btn btn-outline-white nav-btn nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Instances
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -65,15 +65,15 @@
                             <a class="dropdown-item disabled" href="#">More to come...</a>
                         </div>
                     </li>
-                    <a class="btn btn-outline-light nav-btn nav-link" href="https://github.com/RoachLok/MyCloudInstance"> GitHub </a>
-                    <a class="btn btn-outline-light nav-btn nav-link"> docs </a>
+                    <a class="btn btn-outline-white nav-btn nav-link" href="./about.html"> About Us </a>
+                    <a class="btn btn-outline-white nav-btn nav-link" href="https://github.com/RoachLok/MyCloudInstance"> GitHub </a>
                 </div>
             </div>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup" name="nav-collapsers">
-                <a class="btn btn-outline-light nav-btn nav-link" href="login"> Login </a>    
-                <a class="btn btn-outline-light nav-link nav-btn" href="register"> Register </a>
+                <a class="btn btn-outline-white nav-btn nav-link" href="signin.php"> Login </a>    
+                <a class="btn btn-outline-white nav-link nav-btn" href="signup.php"> Register </a>
             </div>
-        </nav> 
+        </nav>
         <script>
             if (window.innerWidth < 1000) {
                 const query = document.getElementsByName('nav-collapsers');
@@ -106,19 +106,19 @@
                             <h1>Simplicity as a Premise</h1>
                             <p>Start coding now without the need of registering.</p>
                             <p>
-                                <a class="btn btn-light" href="gnu">Start coding</a>
+                                <a class="btn btn-white" href="gnu.html">Start coding</a>
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="./static/img/caru_1.png" alt="Second slide">
+                    <img class="d-block w-100" src="./static/img/caru_1.jpg" alt="Second slide">
                     <div class="container">
                         <div class="carousel-caption text-left">
                             <h1>Do more</h1>
                             <p>Register now to access more free services.</p>
                             <p>
-                                <a class="btn btn-light" href="signup">SIGN UP</a>
+                                <a class="btn btn-white" href="signup.php">SIGN UP</a>
                             </p>
                         </div>
                     </div>
@@ -128,21 +128,21 @@
                     <div class="container">
                         <div class="carousel-caption text-left">
                             <h1>Instance Hosting</h1>
-                            <p style="max-width: 50vw;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam libero et fermentum commodo. Vivamus maximus erat fermentum ex vulputate accumsan. Nam congue neque eget leo posuere, non ornare ex imperdiet.</p>
+                            <p style="max-width: 50vw;">Disfruta de la sección de creación de instancias </p>
                             <p>
-                                <button class="btn btn-light">Pricing</button>
+                                <button class="btn btn-white">Pricing</button>
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="./static/img/caru_2.png" alt="Fourth slide">
+                    <img class="d-block w-100" src="./static/img/caru_2.jpg" alt="Fourth slide">
                     <div class="container">
                         <div class="carousel-caption text-left">
                             <h1>About Us</h1>
-                            <p style="max-width: 50vw;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam libero et fermentum commodo. Vivamus maximus erat fermentum ex vulputate accumsan. Nam congue neque eget leo posuere, non ornare ex imperdiet.</p>
+                            <p style="max-width: 50vw;">Discover our team and more!</p>
                             <p>
-                                <a class="btn btn-light" href="about.html">Go to About us</a>
+                                <a class="btn btn-white" href="about.html">Go to About us</a>
                             </p>
                         </div>
                     </div>
@@ -159,7 +159,7 @@
         </div>
 
         <!-- Info Sections -->
-        <section id="features">
+        <!--<section id="features">
             <div class="container">
                 <div class="row">
                     <h4 class="title">FEATURES</h4>
@@ -171,62 +171,146 @@
                         </div>
                         <div class="row">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam libero et fermentum commodo. Vivamus maximus erat fermentum ex vulputate accumsan. Nam congue neque eget leo posuere, non ornare ex imperdiet. Curabitur augue nulla, aliquam tincidunt ultricies vehicula, interdum vel tellus. Vestibulum augue orci, lacinia nec diam dapibus, elementum fringilla mi. Nunc sit amet ligula ut tortor feugiat pharetra. Ut tristique elit in tincidunt rhoncus. Cras ac condimentum sapien. 
+                            <a class="btn btn-dark" href="">Start coding</a>
                         </div>
                     </div>
                     <div class="col info-col">
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/dH0yz-Osy54" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
-            </div>
-            <div class="d-md-flex flex-md-equal w-60 my-md-3 pl-md-3">
-                <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-                    <div class="my-3 py-3">
-                        <h2 class="display-5">Testing this</h2>
-                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div> 
+        </section>-->
+        <section id="features">
+            <div class="container">
+                <div class="row" style="padding-top: 10rem;">
+                    <div class="col">
+                        <img src="./static/img/prim.png" style="width: 80%;"></img>
                     </div>
-                    <div class="bg-light box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-                </div>
-                <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-                    <div class="my-3 p-3">
-                        <h2 class="display-5">That had been</h2>
-                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <div class="col">
+                        <div class="row">
+                            <h3 class="subtitle" style="font-weight: bolder;">As Premise: Simplicity and Efficiency</h3>
+                        </div>
+                        <div class="row">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam libero et fermentum commodo. Vivamus maximus erat fermentum ex vulputate accumsan. Nam congue neque eget leo posuere, non ornare ex imperdiet. Curabitur augue nulla, aliquam tincidunt ultricies vehicula, interdum vel tellus. Vestibulum augue orci, lacinia nec diam dapibus, elementum fringilla mi. Nunc sit amet ligula ut tortor feugiat pharetra. Ut tristique elit in tincidunt rhoncus. Cras ac condimentum sapien. 
+                            <a class="btn btn-dark" href="">Start coding</a>
+                        </div>
                     </div>
-                    <div class="bg-dark box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
                 </div>
-            </div>     
+                <div class="row" style="padding-top: 6rem;">
+                    <iframe width="500" height="255" src="https://www.youtube.com/embed/dH0yz-Osy54" frameborder="0" allowfullscreen></iframe>
+                </div>
+                
+            </div> 
         </section>
 
-        <section id="howto">
+        <section id="onlineide">
             <div class="container">
-                <div class="row">
-                    <h4 class="title">HOW TO</h4>
-                </div>
-                <div class="row">
+                <div class="row" style="padding-top: 10rem;">
                     <div class="col">
-
+                        <div class="row">
+                            <h3 class="subtitle" style="font-weight: bolder;">Online coding IDE</h3>
+                        </div>
+                        <div class="row">
+                            <p style="text-align: justify;">Without the need of a registered account,
+                                you will be able to access freely to our on-line IDE. Here you will be
+                                able to programe in: Java, C++ and Python.
+                                To unlock all of the on-line IDE features, you will need to
+                                creat an account, freely of cost. 
+                                Stop wasting your time, and hop onto the coding life.
+                            </p> 
+                            <a class="btn btn-dark" href="">Start coding</a>
+                        </div>
                     </div>
                     <div class="col">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/dH0yz-Osy54" frameborder="0" allowfullscreen></iframe>
+                        <img src="./static/img/progra.png" style="width: 100%;"></img>
+                    </div>
+                </div>
+                <div class="d-md-flex flex-md-equal w-60 my-md-3 pl-md-3">
+                    <div class="bg-white mr-md-3 pt-3 px-3 pt-md-1 px-md-5 text-center text-black overflow-hidden">
+                        <div class="my-3 py-3">
+                            <h2 class="display-5">Simple</h2>
+                        </div>
+                        <img src="./static/img/mac.png" style="width: 130%;"></img>
+                    </div>
+                    <div class="bg-white mr-md-3 pt-3 px-3 pt-md-1 px-md-5 text-center text-black overflow-hidden">
+                        <div class="my-3 py-3">
+                            <h2 class="display-5">Portable</h2>
+                        </div>
+                        <img src="./static/img/CloudInstance.png" style="width: 50%;"></img>
+                    </div>
+                </div>
+            </div> 
+        </section>
+
+        <section id="education">
+            <div class="container">
+                <div class="row" style="padding-top: 10rem;">
+                    <div class="col">
+                        <img src="./static/img/educa.png" style="width: 70%;"></img>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <h3 class="subtitle" style="font-weight: bolder;">Education section</h3>
+                        </div>
+                        <div class="row">
+                            <p style="text-align: justify;">If you are in need of some help when it comes to coding, the educational section is just what you need. 
+                                Sing-up and start learning with the best on-line tutorials out there. 
+                                Whether you are a beginner or an advance programer, you will find a tutorial with the latest coding languages out there. 
+                                Sing-up and discover the programing world you were missing. 
+                            </p> 
+                            <a class="btn btn-dark" href="">Start learning</a>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="row" style="padding-top: 6rem;">
+                    <img class="center" src="./static/img/grad.png"></img>
+                </div>
+            </div> 
+        </section>        
+        
+        <section id="instancias">
+            <div class="container">
+                <div class="row" style="padding-top: 5rem;">
+                    <div class="col">
+                        <div class="row">
+                            <h3 class="subtitle" style="font-weight: bolder;">Instances Service Payment Plans:</h3>
+                        </div>
+                        <div class="row">
+                            <p style="text-align: justify;">erat fermentum ex vulputate
+                                accumsan. Nam congue neque eget leo posuere, non ornare ex imperdiet.
+                                Curabitur augue nulla, aliquam tincidunt ultricies
+                                vehicula, interdum vel tellus. Vestibulum augue orci, lacinia nec diam
+                                dapibus, elementum fringilla mi. Nunc sit amet ligula ut tortor feugiat pharetra.
+                                Ut tristique elit in tincidunt rhoncus. Cras ac condimentum
+                                sapien.</p>  
+                        </div>
+                    </div>
+                    <div class="col">
+                        <img src="./static/img/planes.png" style="width: 130%;"></img>
                     </div>
                 </div>
             </div>
             <div class="d-md-flex flex-md-equal w-60 my-md-3 pl-md-3">
-                <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-                    <div class="my-3 p-3">
-                        <h2 class="display-5">Not so cool</h2>
-                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                    <div class="bg-dark box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-                </div>
-                <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+                <div class="bg-white mr-md-3 pt-3 px-3 pt-md-1 px-md-5 text-center text-black overflow-hidden">
                     <div class="my-3 py-3">
-                        <h2 class="display-5">Im not sure</h2>
-                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h2 class="display-5">Linuz Mint</h2>
                     </div>
-                    <div class="bg-light box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+                    <img class="imginst" src="./static/img/lmint.jpg"></img>
                 </div>
-            </div>   
-            
+                <div class="bg-white mr-md-3 pt-3 px-3 pt-md-1 px-md-5 text-center text-black overflow-hidden">
+                    <div class="my-3 py-3">
+                        <h2 class="display-5">Ubuntu</h2>
+                    </div>
+                    <img class="imginst" src="./static/img/lubuntu.jpg"></img>
+                </div>
+                <div class="bg-white mr-md-3 pt-3 px-3 pt-md-1 px-md-5 text-center text-black overflow-hidden">
+                    <div class="my-3 py-3">
+                        <h2 class="display-5">Windows server</h2>
+                    </div>
+                    <img class="imginst" src="./static/img/wserver.jpg" ></img>
+                </div>
+            </div>
         </section>
 
         <!-- Footer -->
@@ -234,9 +318,9 @@
             <div class="container"><div class="row">
                 <span class="col-xl-5">
                     <div>
-                        <a class="navbar-brand" href="/"><b class="footer-title">My Cloud Instance</b></a>
+                        <a class="navbar-brand" href="index.html"><b class="footer-title">My Cloud Instance</b></a>
                         <p style="margin-top: 1em;">Simple instance and environment hosting platform where services are offered with simplicity as a premise.</p>
-                        <p style="margin-top: 4em;">©  2021 MyCloudInstance. All Rights Reserved.</p>
+                        <p style="margin-top: 5.5em;">©  2021 MyCloudInstance. All Rights Reserved.</p>
                     </div>
                 </span>
 
@@ -260,7 +344,7 @@
                 <span class="col-xl-3">
                     <h5>Links</h5>
                     <ul class="list-lash">
-                        <li><a href="about">About</a></li>
+                        <li><a href="about.html">About</a></li>
                         <li><a href="#home">Projects</a></li>
                         <li><a href="#home">Blog</a></li>
                         <li><a href="#home">Contact</a></li>

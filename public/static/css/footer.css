@@ -1,0 +1,59 @@
+html {
+    overflow: auto;
+    overflow-x: hidden; 
+    scroll-behavior: smooth;
+    height: 100vh;
+    font-family: "Roboto",sans-serif;
+}
+
+footer {
+    color: white;
+    background: #212121;
+    font-family: "Roboto",sans-serif;
+    padding-top: 1.5vh;
+    scroll-snap-align: end;
+    scroll-snap-stop : normal;
+}
+
+footer a{
+    color: white;
+}
+
+footer h5 {
+    font-weight: bold;
+    color: #07518f;
+    margin-top: 0.5rem;
+}
+
+.footer-title {
+    color: #ee9107;
+}
+
+.list-lash li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.list-lash li a {
+    display: inline-block;
+
+    background: linear-gradient(to right, #07518f 50%, white 50%);
+    
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 275ms ease;
+    text-decoration: none;
+}
+
+.list-lash li a:hover {
+    background-position: 0 100%;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
