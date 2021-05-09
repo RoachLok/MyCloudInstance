@@ -1,4 +1,4 @@
-<p align="center"> <img src="http://www.mycloudinstance.cf/static/img/logo.png"/> </p>
+<p align="center"> <img src="https://raw.githubusercontent.com/RoachLok/MyCloudInstance/main/public/static/img/logo.png"/> </p>
 <h1 align="center"> MyCloudInstance </h1>
 
 <p align="center">A cloud computing platform for instance hosting, cloud shell's and coding resources.</p>
