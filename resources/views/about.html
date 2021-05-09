@@ -1,13 +1,11 @@
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.75">
-    <title>NLP Web-App</title>
-    
-    <!-- Material -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.0.0/mdb.min.js"></script> 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.0.0/mdb.min.css" rel="stylesheet"/>  
-    
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./static/img/ico.png">
+    <title>MyCloudInstance</title>
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <!-- Google Fonts -->
@@ -16,8 +14,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+    <!-- Stylesheets -->
     
-    
+    <link href="./static/css/product.css" rel="stylesheet">
+    <link href="./static/css/nav.css" rel="stylesheet">
+    <link href="./static/css/footer.css" rel="stylesheet">
+
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Bootstrap tooltips -->
@@ -26,187 +28,230 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
-    
+    <!-- Local dependencies -->
+    <script defer type="text/javascript" src="./static/js/main.js"></script>
+    <script type="text/javascript" src="./static/js/nav.js"></script>
+  </head>
+  <body>
+    <!-- NavBar -->
+    <nav id="home" class="navbar navbar-expand-lg fixed-top navbar-dark snap-scroll scrolling-navbar">
+      <a class="btn navbar-brand nav-btn" href="./index.html"> <img src="./static/img/logo.png" width="36" height="25" class="d-inline-block align-top" alt="mci-ico" style="margin-top: -13%;"> </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
 
-    <!-- Bootstrap-slider -->        
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/css/bootstrap-slider.css ">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.js"></script>        
+    <!-- Content -->
+    <center>
+        <h1 style="margin-top: 9rem; font-weight: bolder;">About our project</h1>
+    </center>
     
-</head>
-<body>
-<div class="jumbotron text-center" style="height: 7%">
-    <h1 style="margin-top: -0.9em">About our project</h1>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="row" style="margin-bottom: 2em; margin-top: 2.5em">
-        <h2>PHP</h2>
-      </div>
-      <div class="row">
-        <div class="col-8">
-          <img src="static/img/about/php.png" style="width: 50%" />
-        </div>
-        <div class="col-4">
-          <p style="text-align: justify">
-            PHP (acrónimo recursivo de PHP: Hypertext Preprocessor) es un lenguaje de código abierto muy popular especialmente adecuado para el desarrollo web y que puede ser incrustado en HTML. 
-          </p>
-        </div>
-      </div>
-  
-      <div class="row">
-        <div class="row" style="margin-bottom: 2em; margin-top: 3em">
-          <h2>Git Bash</h2>
-        </div>
-        <div class="row">
-          <div class="col-4">
-            <p style="text-align: justify">
-              Git es un software de control de versiones diseñado por Linus
-              Torvalds, pensando en la eficiencia, la confiabilidad y
-              compatibilidad del mantenimiento de versiones de aplicaciones cuando
-              éstas tienen un gran número de archivos de código fuente.
-            </p>
-          </div>
-          <div class="col-8">
-            <img src="static/img/about/git.png" style="width: 90%" />
-          </div>
-        </div>
-      </div>
-  
-      <div class="row">
-        <div class="row" style="margin-bottom: 2em; margin-top: 2.5em">
-          <h2>Ace</h2>
-        </div>
-        <div class="row">
-          <div class="col-8">
-            <img src="static/img/about/ace.png" style="width: 60%" />
-          </div>
-          <div class="col-4">
-            <p style="text-align: justify">
-                Ace es un editor de código escrito en JavaScript. Coincide con las funciones y el rendimiento de editores nativos como Sublime, Vim y TextMate. Puede integrarse fácilmente en cualquier página web y aplicación JavaScript.
-            </p>
-          </div>
-        </div>
-  
-        <div class="row">
-          <div class="row" style="margin-bottom: 2em; margin-top: 3em">
-            <h2>HTML</h2>
-          </div>
-          <div class="row">
-            <div class="col-4">
-              <p style="text-align: justify">
-                HTML es un lenguaje de marcado que nos permite indicar la estructura de nuestro documento mediante etiquetas. Este lenguaje nos ofrece una gran adaptabilidad, una estructuración lógica y es fácil de interpre­tar tanto por humanos como por máquinas.
-              </p>
-            </div>
-            <div class="col-8">
-              <img src="static/img/about/html.png" style="width: 60%" />
-            </div>
-          </div>
-        </div>
-  
+    <section id="aboutcont">
+      <div class="container">
         <div class="row">
           <div class="row" style="margin-bottom: 2em; margin-top: 2.5em">
-            <h2>Javascript</h2>
+            <h2>PHP</h2>
           </div>
           <div class="row">
             <div class="col-8">
-              <img src="static/img/about/js.png" style="width: 50%" />
+              <img src="static/img/about/fphp.png" style="width: 30%" />
             </div>
             <div class="col-4">
               <p style="text-align: justify">
-                JavaScript (abreviado comúnmente JS) es un lenguaje de
-                programación interpretado, dialecto del estándar ECMAScript. Se
-                define como orientado a objetos,​ basado en prototipos,
-                imperativo, débilmente tipado y dinámico. Se utiliza
-                principalmente del lado del cliente, implementado como parte de un
-                navegador web permitiendo mejoras en la interfaz de usuario y
-                páginas web dinámicas​ y JavaScript del lado del servidor
-                (Server-side JavaScript o SSJS). Su uso en aplicaciones externas a
-                la web, por ejemplo en documentos PDF, aplicaciones de escritorio
-                (mayoritariamente widgets) es también significativo.
+                PHP (acrónimo recursivo de PHP: Hypertext Preprocessor) es un lenguaje de código abierto muy popular especialmente adecuado para el desarrollo web y que puede ser incrustado en HTML. 
               </p>
             </div>
           </div>
-  
+      
           <div class="row">
             <div class="row" style="margin-bottom: 2em; margin-top: 3em">
-              <h2>MYSQL</h2>
+              <h2>Git Bash</h2>
             </div>
             <div class="row">
               <div class="col-4">
                 <p style="text-align: justify">
-                    MySQL es un sistema de gestión de bases de datos relacional desarrollado bajo licencia dual: Licencia pública general/Licencia comercial por Oracle Corporation y está considerada como la base de datos de código abierto más popular del mundo, y una de las más populares en general junto a Oracle y Microsoft SQL Server, todo para entornos de desarrollo web.
+                  Git es un software de control de versiones diseñado por Linus
+                  Torvalds, pensando en la eficiencia, la confiabilidad y
+                  compatibilidad del mantenimiento de versiones de aplicaciones cuando
+                  éstas tienen un gran número de archivos de código fuente.
                 </p>
               </div>
               <div class="col-8">
-                <img src="static/img/about/mysql.png" style="width: 80%" />
+                <img src="static/img/about/fgit.png" style="width: 30%" />
               </div>
             </div>
           </div>
-  
+      
           <div class="row">
             <div class="row" style="margin-bottom: 2em; margin-top: 2.5em">
-              <h2>MDBootstrap</h2>
+              <h2>Ace</h2>
             </div>
             <div class="row">
               <div class="col-8">
-                <img src="static/img/about/mdbootstrap.png" style="width: 80%" />
+                <img src="static/img/about/face.png" style="width: 30%" />
               </div>
               <div class="col-4">
                 <p style="text-align: justify">
-                  Material Design fue desarrollado en 2014 por Google. Es un
-                  lenguaje de diseño mobile-first. Además de su facilidad de
-                  implementación y uso, otra gran característica de esta
-                  plataforma de diseño es la falta de dependencia de los marcos y
-                  bibliotecas de JavaScript. En Materialize también cuenta con su
-                  propio sistema de grid (no definido propiamente en Material
-                  Design). Lo cual permite la realización de paginas muy complejas
-                  con el estilo de Google y todas sus funcionalidades. Y al igual
-                  que Bootstrap podemos darles, a partir del CSS, nuestros propios
-                  estilos.
+                    Ace es un editor de código escrito en JavaScript. Coincide con las funciones y el rendimiento de editores nativos como Sublime, Vim y TextMate. Puede integrarse fácilmente en cualquier página web y aplicación JavaScript.
                 </p>
               </div>
             </div>
-  
-            <footer class="bg-dark text-white text-center text-lg-start">
-              <div class="container p-4">
-                <!--Grid row-->
-                <div class="row">
-                  <!--Grid column-->
-                  <img
-                    src="static/img/logo.png"
-                    style="
-                      width: 10%;
-                      margin-left: auto;
-                      margin-right: auto;
-                      margin-bottom: 20px;
-                    "
-                  />
-                
-                  <!--Grid column-->
+      
+            <div class="row">
+              <div class="row" style="margin-bottom: 2em; margin-top: 3em">
+                <h2>HTML</h2>
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <p style="text-align: justify">
+                    HTML es un lenguaje de marcado que nos permite indicar la estructura de nuestro documento mediante etiquetas. Este lenguaje nos ofrece una gran adaptabilidad, una estructuración lógica y es fácil de interpre­tar tanto por humanos como por máquinas.
+                  </p>
                 </div>
-                
-                <!--Grid row-->
+                <div class="col-8">
+                  <img src="static/img/about/html.png" style="width: 30%" />
+                </div>
               </div>
-              <!-- Grid container -->
-  
-              <!-- Copyright -->
-              <div
-                class="text-center p-3"
-                style="background-color: rgba(0, 0, 0, 0.2)"
-              >
-                © 2021 Copyright:
-                <a
-                  class="text-white"
-                  href="https://github.com/RoachLok/MyCloudInstance"
-                  >My Cloud Instance</a
-                >
+            </div>
+      
+            <div class="row">
+              <div class="row" style="margin-bottom: 2em; margin-top: 2.5em">
+                <h2>Javascript</h2>
               </div>
-              <!-- Copyright -->
-            </footer>
+              <div class="row">
+                <div class="col-8">
+                  <img src="static/img/about/fjs.png" style="width: 30%" />
+                </div>
+                <div class="col-4">
+                  <p style="text-align: justify">
+                    JavaScript (abreviado comúnmente JS) es un lenguaje de
+                    programación interpretado, dialecto del estándar ECMAScript. Se
+                    define como orientado a objetos,​ basado en prototipos,
+                    imperativo, débilmente tipado y dinámico. Se utiliza
+                    principalmente del lado del cliente, implementado como parte de un
+                    navegador web permitiendo mejoras en la interfaz de usuario y
+                    páginas web dinámicas​ y JavaScript del lado del servidor
+                    (Server-side JavaScript o SSJS). Su uso en aplicaciones externas a
+                    la web, por ejemplo en documentos PDF, aplicaciones de escritorio
+                    (mayoritariamente widgets) es también significativo.
+                  </p>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="row" style="margin-bottom: 2em; margin-top: 3em">
+                  <h2>MYSQL</h2>
+                </div>
+                <div class="row">
+                  <div class="col-4">
+                    <p style="text-align: justify">
+                        MySQL es un sistema de gestión de bases de datos relacional desarrollado bajo licencia dual: Licencia pública general/Licencia comercial por Oracle Corporation y está considerada como la base de datos de código abierto más popular del mundo, y una de las más populares en general junto a Oracle y Microsoft SQL Server, todo para entornos de desarrollo web.
+                    </p>
+                  </div>
+                  <div class="col-8">
+                    <img src="static/img/about/fmysql.png" style="width: 30%" class="center" />
+                  </div>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="row" style="margin-bottom: 2em; margin-top: 2.5em">
+                  <h2>MDBootstrap</h2>
+                </div>
+                <div class="row">
+                  <div class="col-8 vertical-center">
+                    <img src="static/img/about/fmdb.png" style="width: 30%" class="center" />
+                  </div> 
+                  <div class="col-4">
+                    <p style="text-align: justify">
+                      Material Design fue desarrollado en 2014 por Google. Es un
+                      lenguaje de diseño mobile-first. Además de su facilidad de
+                      implementación y uso, otra gran característica de esta
+                      plataforma de diseño es la falta de dependencia de los marcos y
+                      bibliotecas de JavaScript. En Materialize también cuenta con su
+                      propio sistema de grid (no definido propiamente en Material
+                      Design). Lo cual permite la realización de paginas muy complejas
+                      con el estilo de Google y todas sus funcionalidades. Y al igual
+                      que Bootstrap podemos darles, a partir del CSS, nuestros propios
+                      estilos.
+                    </p>
+                  </div>
+                </div>
+            </div>
         </div>
-    </div>
-  </div>
-</div>
-</div>
-</body>
+      </div>
+      </div>
+      </div>
+    </section>
+    
+    <!-- Team -->
+    <center>
+      <h1 style="margin-top: 9rem; font-weight: bolder;">Our Team</h1>
+    </center>
+    <section id="team">
+      <div class="d-md-flex flex-md-equal w-60 my-md-3 pl-md-3">
+          <div class="bg-white mr-md-3 pt-3 px-3 pt-md-1 px-md-5 text-center text-black overflow-hidden">
+              <div class="my-3 py-3">
+                <img src="./static/img/ghector.jpg" style="width: 50%; padding-top: 2rem; padding-bottom: 1rem;"></img>
+                <h3>Hector Palencia</h3>
+                <a href="https://github.com/HectorSkm">Link GitHub</a>
+              </div>
+          </div>
+          <div class="bg-white mr-md-3 pt-3 px-3 pt-md-1 px-md-5 text-center text-black overflow-hidden">
+              <div class="my-3 py-3">
+                <img src="./static/img/gjavi.png" style="width: 50%; padding-top: 2rem; padding-bottom: 1rem"></img>
+                <h3>Javier Taborda</h3>
+                <a href="https://github.com/RoachLok">Link GitHub</a>
+              </div>
+          </div>
+          <div class="bg-white mr-md-3 pt-3 px-3 pt-md-1 px-md-5 text-center text-black overflow-hidden">
+            <div class="my-3 py-3">
+              <img src="./static/img/garturo.jpg" style="width: 50%; padding-top: 2rem; padding-bottom: 1rem"></img>
+              <h3>Arturo Alba</h3>
+              <a href="https://github.com/ArtySaurio">Link GitHub</a>
+            </div>
+          </div>
+      </div>  
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container"><div class="row">
+          <span class="col-xl-5">
+              <div>
+                  <a class="navbar-brand" href="index.html"><b class="footer-title">My Cloud Instance</b></a>
+                  <p style="margin-top: 1em;">Simple instance and environment hosting platform where services are offered with simplicity as a premise.</p>
+                  <p style="margin-top: 5.5em;">©  2021 MyCloudInstance. All Rights Reserved.</p>
+              </div>
+          </span>
+
+          <span class="col-md-4">
+              <h5>Contacto</h5>
+              <dl>
+                  <dt>Address:</dt>
+                  <dd><a href="https://www.google.com/maps/place/Mulah,+Maldives/@2.9464588,73.5796558,16z/data=!3m1!4b1!4m5!3m4!1s0x3b387db8bde51311:0x5101633cf14e8bc9!8m2!3d2.9440625!4d73.5873853">Grand Line</a></dd>
+              </dl>
+              <dl>
+                  <dt>e-Mail:</dt>
+                  <dd><a href="mailto:#">mycloudinstance.contact@gmail.com</a></dd>
+              </dl>
+              <dl class="contact-list">
+                  <dt>Support:</dt>
+                  <dd><a href="#support">https://support.mycloudinstance.com</a> <span>
+                  </dd>
+              </dl>
+          </span>
+
+          <span class="col-xl-3">
+              <h5>Links</h5>
+              <ul class="list-lash">
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="#home">Projects</a></li>
+                  <li><a href="#home">Blog</a></li>
+                  <li><a href="#home">Contact</a></li>
+                  <li><a href="#home">Pricing</a></li>
+              </ul>
+          </span>
+      </div>
+    </footer>
+  </body>
 </html>
