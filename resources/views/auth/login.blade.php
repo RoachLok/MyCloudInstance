@@ -33,7 +33,7 @@
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div>
-                        <x-jet-input id="email" placeholder="{{ __('Email') }}" class="block mt-2 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                        <x-jet-input id="name" placeholder="{{ __('Username') }}" class="block mt-2 w-full" type="text" name="name" :value="old('name')" required autofocus />
                     </div>
 
                     <div class="mt-4">
