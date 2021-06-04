@@ -18,6 +18,9 @@
                     <x-jet-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')" style="color: white;">
                         {{ __('Profile') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('geoanalysis.mapview') }}" :active="request()->routeIs('geoanalysis.mapview')" style="color: white;">
+                        {{ __('Mapview') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 
