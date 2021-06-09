@@ -27,6 +27,18 @@ Route::get('/gnu', function () {
     return view('gnu');
 });
 
+Route::get('/education', function () {
+    return view('education');
+});
+
+Route::get('/cursojava', function () {
+    return view('cursojava');
+});
+
+Route::get('/tutorial', function () {
+    return view('tutorial');
+});
+
 Route::get('/signin', function () {
     return view('signin');
 });
@@ -40,6 +52,12 @@ Route::post('/signin', function () {
 Route::get('/signup', function () {
     return view('signup');
 });
+
+
+
+/*Route::middleware(['auth:sanctum', 'verified'])->get('/education', function () {
+    return view('education');
+})->name('education');*/
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -60,6 +78,8 @@ Route::post('/email/verification-notification', function (Request $request) {
 
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+
 
 
 /* 
