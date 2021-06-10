@@ -1,12 +1,12 @@
 html,
 body {
   height: 100%;
-  background-color: #212121;
+  background-color: #e9a769;
 }
 
 /*Adaptamos los colores del footer as los colores de la seccion educativa*/
 .navbar {
-  background: #595959 !important;
+  background: #1a1a1a !important;
 }
 
 footer{
@@ -14,7 +14,7 @@ footer{
 }
 
 footer h5{
-  color: #2f92e4 !important;
+  color: #d68110 !important;
 }
 
 /*Estilo de los botones*/
@@ -39,6 +39,12 @@ footer h5{
   margin-bottom: 5%;
   font-family: 'Playfair Display', serif;
 }
+
+.ora{
+  background-color: #d68110!important;
+}
+
+
 
 .lessons {
   color: black !important;

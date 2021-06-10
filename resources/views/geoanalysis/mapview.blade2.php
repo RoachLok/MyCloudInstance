@@ -98,17 +98,17 @@
             <script>
                 var map = L.map('map', {
                     zoomControl:true, 
-                    maxZoom:10,
+                    maxZoom:20,
                     layers:[Spain_UnidadAdministrativa,Spain_PNOA_Ortoimagen]
                 }).fitBounds([[24.9300000311,-19.6],[46.0700000311,5.6]]);
                 
                 var baselayers = {
                     "PNOA Mosaico": Spain_PNOA_Mosaico,
-                    "PNOA Min. Actualidad": Spain_PNOA_Ortoimagen,
+                    "PNOA Máx. Actualidad": Spain_PNOA_Ortoimagen,
                     "PNOA 2010": Spain_PNOA_2010
                 };
                 var overlayers = {
-                    "INE Data": Spain_UnidadAdministrativa
+                    "Unidades administrativas": Spain_UnidadAdministrativa
                 };
                 
                 L.control.layers(baselayers, overlayers,{collapsed:false}).addTo(map);
