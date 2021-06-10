@@ -46,9 +46,9 @@ return [
     |
     */
 
-    'username' => 'email',
+    'username' => 'name',
 
-    'email' => 'email',
+    /*'email' => 'email',  Required for email and username login. */
 
     /*
     |--------------------------------------------------------------------------

@@ -1,0 +1,9 @@
+DATA SOURCES:
+
+   INE constantly updated data:
+	https://ine.es/dynt3/inebase/es/index.htm?padre=517&capsel=525
+
+   Municipality surface area:
+	https://ssweb.seap.minhap.es/REL/frontend/inicio/municipios/all/all/50
+
+   (File obtained from later link modified to match INE's naming conventions and pandas read_excel format).
