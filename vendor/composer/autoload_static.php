@@ -32,11 +32,11 @@ class ComposerStaticInit24d92b6e9bc5e835129c01459f89970f
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
+        '9cdd7b9056abc3081735233ba9dd9c7f' => __DIR__ . '/..' . '/facade/flare-client-php/src/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
-        '9cdd7b9056abc3081735233ba9dd9c7f' => __DIR__ . '/..' . '/facade/flare-client-php/src/helpers.php',
-        '40275907c8566c390185147049ef6e5d' => __DIR__ . '/..' . '/livewire/livewire/src/helpers.php',
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
+        '40275907c8566c390185147049ef6e5d' => __DIR__ . '/..' . '/livewire/livewire/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -47,6 +47,10 @@ class ComposerStaticInit24d92b6e9bc5e835129c01459f89970f
         'p' => 
         array (
             'phpDocumentor\\Reflection\\' => 25,
+        ),
+        'Y' => 
+        array (
+            'Yadahan\\AuthenticationLog\\' => 26,
         ),
         'W' => 
         array (
@@ -199,6 +203,10 @@ class ComposerStaticInit24d92b6e9bc5e835129c01459f89970f
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+        ),
+        'Yadahan\\AuthenticationLog\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yadahan/laravel-authentication-log/src',
         ),
         'Whoops\\' => 
         array (
@@ -5554,6 +5562,14 @@ class ComposerStaticInit24d92b6e9bc5e835129c01459f89970f
         'Whoops\\Util\\Misc' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/Misc.php',
         'Whoops\\Util\\SystemFacade' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/SystemFacade.php',
         'Whoops\\Util\\TemplateHelper' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
+        'Yadahan\\AuthenticationLog\\AuthenticationLog' => __DIR__ . '/..' . '/yadahan/laravel-authentication-log/src/AuthenticationLog.php',
+        'Yadahan\\AuthenticationLog\\AuthenticationLogServiceProvider' => __DIR__ . '/..' . '/yadahan/laravel-authentication-log/src/AuthenticationLogServiceProvider.php',
+        'Yadahan\\AuthenticationLog\\AuthenticationLogable' => __DIR__ . '/..' . '/yadahan/laravel-authentication-log/src/AuthenticationLogable.php',
+        'Yadahan\\AuthenticationLog\\Console\\ClearCommand' => __DIR__ . '/..' . '/yadahan/laravel-authentication-log/src/Console/ClearCommand.php',
+        'Yadahan\\AuthenticationLog\\EventMap' => __DIR__ . '/..' . '/yadahan/laravel-authentication-log/src/EventMap.php',
+        'Yadahan\\AuthenticationLog\\Listeners\\LogSuccessfulLogin' => __DIR__ . '/..' . '/yadahan/laravel-authentication-log/src/Listeners/LogSuccessfulLogin.php',
+        'Yadahan\\AuthenticationLog\\Listeners\\LogSuccessfulLogout' => __DIR__ . '/..' . '/yadahan/laravel-authentication-log/src/Listeners/LogSuccessfulLogout.php',
+        'Yadahan\\AuthenticationLog\\Notifications\\NewDevice' => __DIR__ . '/..' . '/yadahan/laravel-authentication-log/src/Notifications/NewDevice.php',
         'phpDocumentor\\Reflection\\DocBlock' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock.php',
         'phpDocumentor\\Reflection\\DocBlockFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactory.php',
         'phpDocumentor\\Reflection\\DocBlockFactoryInterface' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactoryInterface.php',
