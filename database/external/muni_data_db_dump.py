@@ -44,5 +44,6 @@ if __name__ == "__main__":
         except:
             print('Municipality already in table or trying to insert autonomous locality.')
             print('Item:',row['DENOMINACION'], 'from',row['PROVINCIA'])
-    
+
+    conn.commit()
     print('\n Done, correctly generated municipalities database.')
