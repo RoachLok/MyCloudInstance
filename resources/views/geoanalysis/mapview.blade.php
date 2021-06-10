@@ -1,101 +1,124 @@
-<x-app-layout>
-    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js"></script>
-    <x-slot name="header">
-        <a class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Map') }}
-        </a>
-    </x-slot>
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
-    <script src="//api.tiles.mapbox.com/mapbox.js/plugins/turf/v1.4.0/turf.min.js"></script>
-    <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link rel="icon" href="../static/img/ico.png" />
 
-    <div style="height:900px; width:900px" id="map"></div>
+        <title>MCI - Dashboard</title>
 
-</x-app-layout>
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
-<script>
-var p=[];
+        <!-- Material Design Bootstrap -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
 
-
-var map = L.map('map', {
-    center: [40.329796, -3.720919],
-    zoom:10
-});
-L.marker([40.416845138888885, -3.720919]).addTo(map);
-L.marker([40, -3]).addTo(map);
-
-L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+        <script src="//api.tiles.mapbox.com/mapbox.js/plugins/turf/v1.4.0/turf.min.js"></script>
+        <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+        <script src="https://sigdeletras.github.io/Leaflet.Spain.WMS/src/Leaflet.Spain.WMS.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js"></script>
 
 
+        <!-- Styles -->
+        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <style>
+            html {
+                scroll-behavior: smooth;
+            }
+            .snap-scroll {
+                scroll-snap-align: start;
+                scroll-snap-stop : normal;
+            }
+            #tpBtn {
+                position: fixed; /* Sticky position */
+                bottom: 20px;
+                right: 30px;
+                z-index: 99; 
+                border: none;
+                outline: none;
+                background-color: #ee9107;
+                color: white;
+                cursor: pointer; /* Add a mouse pointer on hover */
+                padding: 15px;
+                border-radius: 10px; /* Rounded corners */
+                font-size: 18px;
+            }
 
-function getColor(d) {
-return d > 15 ? '#800026' :
-       d > 13  ? '#BD0026' :
-       d > 11  ? '#E31A1C' :
-       d > 6  ? '#FC4E2A' :
-       d > 4   ? '#FD8D3C' :
-       d > 2   ? '#FEB24C' :
-       d > 0   ? '#FED976' :
-                  '#FFFFFF';
-}
+            #tpBtn:hover {
+                background-color: #555;
+            }
+        </style>
+
+        @livewireStyles
+
+        <!-- Scripts -->
+        <script src="{{ mix('js/app.js') }}" defer></script>
+
+    </head>
+    <button class="btn" onclick="toTop()" id="tpBtn" title="Go to top">🚀</button>
+    <script defer>
+        //Get the button:
+        mybutton = document.getElementById("tpBtn");
+        mybutton.style.display = "none";
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function toTop() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        } 
+    </script>
+    <body class="font-sans antialiased">
+        <x-jet-banner />
+
+        @livewire('navigation-menu')
+        <div class=" bg-gray-100">
 
 
-function style(feature) {
-return {
-    fillColor: getColor(feature.properties.count),
-    weight: 2,
-    opacity: 1,
-    color: 'white',
-    dashArray: '3',
-    fillOpacity: 0.7
-};
-}
+            <!-- Page Content -->
+
+            <div class="container" style="display: flex; flex-direction: row;"> 
+                <div style="height:900px;  flex:90%; " id="map"></div>
+                <div style="background-color: coral; height:900px; flex:10%; margin-left:auto;"></div>
+            </div>
 
 
-
-var bbox = [-106.754150390625, 35.02887183968363,-106.47674560546875, 35.18615531474442];
-var size = .01;
-var hexgrid = turf.hex(bbox, size);
-for(var x=0;x<Object.keys(hexgrid.features).length;x++){
-hexgrid.features[x].properties.count=0;}
-
-
-var params="f=json&outSR=4326&outFields=*&where=1=1";
-var url = "http://coagisweb.cabq.gov/arcgis/rest/services/public/environmentalissues/MapServer/1/query"; 
-//var url = "http://coagisweb.cabq.gov/arcgis/rest/services/public/APD_Incidents/MapServer/0/query";
-//var url = "http://coagisweb.cabq.gov/arcgis/rest/services/public/ParkingCitationLocations/MapServer/0/query";
-console.log(params);
-http=new XMLHttpRequest();
-http.open("POST", url, true);
-http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-http.onreadystatechange = function() {//Call a function when the state changes.
-if(http.readyState == 4 && http.status == 200) {
-    //console.log(http.responseText);
-    var result= JSON.parse(http.responseText);
-    console.log(Object.keys(hexgrid.features).length);
-    for(x=0;x<Object.keys(hexgrid.features).length;x++){
-console.log(result.features[x].attributes.OBJECTID);
-        var t = L.marker([result.features[x].geometry.y,result.features[x].geometry.x]);//.addTo(map);
-        p.push(t.toGeoJSON());
-}
-test();
-}};
-http.send(params);
-
-
-function test(){
-
-    for(var y=0;y<Object.keys(hexgrid.features).length-1;y++){
-
-            for(var c=0;c<p.length-1;c++){
-                var poly=turf.polygon(hexgrid.features[y].geometry.coordinates);
+            <script>
+                var map = L.map('map', {
+                    zoomControl:true, 
+                    maxZoom:20,
+                    layers:[Spain_UnidadAdministrativa,Spain_PNOA_Ortoimagen]
+                }).fitBounds([[24.9300000311,-19.6],[46.0700000311,5.6]]);
                 
-                if(turf.inside(p[c],poly)){hexgrid.features[y].properties.count+=1;console.log(hexgrid.features[y].properties.count);}
-            }//inside inside for
+                var baselayers = {
+                    "PNOA Mosaico": Spain_PNOA_Mosaico,
+                    "PNOA Máx. Actualidad": Spain_PNOA_Ortoimagen,
+                    "PNOA 2010": Spain_PNOA_2010
+                };
+                var overlayers = {
+                    "Unidades administrativas": Spain_UnidadAdministrativa
+                };
+                
+                L.control.layers(baselayers, overlayers,{collapsed:false}).addTo(map);
+            </script>
+
             
-        }//end for
+        </div>
         
 
-L.geoJson(hexgrid,{style: style}).addTo(map);	
-}
-</script>
+        <footer class="text-muted text-md text-center text-white">&copy; <a href="/">MCI</a> - 2021</footer>
+    </body>
+</html>
+

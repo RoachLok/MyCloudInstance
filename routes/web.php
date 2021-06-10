@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Http\Controllers\UserLogs;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,20 +26,6 @@ Route::get('/about', function () {
 
 Route::get('/gnu', function () {
     return view('gnu');
-});
-
-Route::get('/signin', function () {
-    return view('signin');
-});
-
-Route::post('/signin', function () {
-    $token = $request->session()->token();
-    $token = csrf_token();
-    return view('signin');
-});
-
-Route::get('/signup', function () {
-    return view('signup');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -64,6 +51,16 @@ Route::post('/email/verification-notification', function (Request $request) {
 Route::middleware(['auth:sanctum', 'verified'])->get('/user/mapview', function () {
     return view('geoanalysis.mapview');
 })->name('geoanalysis.mapview');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/login_logs', [UserLogs::class, 'index'])->name('userlogs.all');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/municipalities', [UserLogs::class, 'test'])->name('userlogs.test');
+
+Route::get('/test', function () {
+    return view('test');
+});
+
+//Route::get('/yikes',  
 
 
 /* 
