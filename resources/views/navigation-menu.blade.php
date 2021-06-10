@@ -21,6 +21,9 @@
                     <x-jet-nav-link href="{{ route('geoanalysis.mapview') }}" :active="request()->routeIs('geoanalysis.mapview')" style="color: white;">
                         {{ __('Mapview') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('geoanalysis.loginlocations') }}" :active="request()->routeIs('geoanalysis.loginlocations')" style="color: white;">
+                        {{ __('Loginlocations') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 

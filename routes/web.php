@@ -64,7 +64,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/user/mapview', function (
     return view('geoanalysis.mapview');
 })->name('geoanalysis.mapview');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/login_logs', [UserLogs::class, 'index'])->name('userlogs.all');
+Route::middleware(['auth:sanctum', 'verified'])->get('/user/loginlocations', function () {
+    return view('geoanalysis.loginlocations');
+})->name('geoanalysis.loginlocations');
+
+Route::get('/login_logs', [UserLogs::class, 'index'])->name('userlogs.all');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/municipalities', [UserLogs::class, 'test'])->name('userlogs.test');
 
