@@ -32,6 +32,8 @@
         <!-- Local dependencies -->
         <script defer type="text/javascript" src="./static/js/main.js"></script>
         <script type="text/javascript" src="./static/js/nav.js"></script>
+        <!-- Script for login button to work  -->
+        <script src="{{ mix('js/app.js') }}" defer></script>
 
     </head>
     <body>
@@ -49,9 +51,9 @@
                             Coding
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="./gnu.php">C++ GNU</a>
+                            <a class="dropdown-item" href="./gnu">C++ GNU</a>
                             <a class="dropdown-item" >Jupyter Notebook</a>
-                            <a class="dropdown-item" href="./java_editor.php">Java</a>
+                            <a class="dropdown-item" href="./java_editor">Java</a>
                         </div>
                     </li>
                     <a class="btn btn-outline-white nav-btn nav-link" href="/education"> Education </a>
@@ -77,8 +79,8 @@
                 </button>
             @else
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup" name="nav-collapsers">
-                    <a class="btn btn-outline-white nav-btn nav-link" href="signin.php"> Login </a>    
-                    <a class="btn btn-outline-white nav-link nav-btn" href="signup.php"> Register </a>
+                    <a class="btn btn-outline-white nav-btn nav-link" href="login"> Login </a>    
+                    <a class="btn btn-outline-white nav-link nav-btn" href="register"> Register </a>
                 </div>
             @endif
         </nav>
