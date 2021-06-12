@@ -29,7 +29,7 @@ class UserLogs extends Controller
      */
     public function test()
     {   
-        return shell_exec('python scripts/amazing.py');
+        return  DB::connection('sqlite')->select('select * from municipa;');
     }
 
     /**
