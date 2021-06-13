@@ -22,35 +22,6 @@ section {
     scroll-snap-stop : normal;
 }
 
-.btn {
-    box-shadow: none; 
-}
-.btn:hover {
-    box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18),0 4px 15px 0 rgba(0,0,0,0.15);
-}
-
-nav {
-    height: 4em;
-}
-
-.nav-btn {
-    margin-top: none;
-    border: none !important;
-    height: 5%;
-    height: 3em;
-    opacity: 100% !important;
-}
-
-.nav-signup {
-    max-width: 10vw;
-}
-
-.btn-signup {
-    font-size: 0.7rem;
-    width: 6.5vw;
-    max-width: 6.5vw;
-}
-
 .overlap {
     z-index: 1500;
     opacity: 80%;
