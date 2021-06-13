@@ -14,16 +14,16 @@
 
 
 #### Run the project
- +  Start cloning the repository and installing dependencies
-    ```bash
+   Start cloning the repository and installing dependencies
+   ```bash
     git clone https://github.com/RoachLok/MyCloudInstance
     cd MyCloudInstance
     composer install
-    ```
- +  Copy .env.example file and name it .env. 
-    ```bash
+   ```
+   Copy .env.example file and name it .env. 
+   ```bash
     cp .env.example .env
-    ```
+   ```
    Now edit it to include your:
 
  + App Settings
@@ -43,6 +43,12 @@
     DB_USERNAME=root
     DB_PASSWORD=
     ```
+ + Second Database Settings
+   ```bash
+    DB_CONNECTION_2=sqlite
+    DB_DATABASE_2= <path_to_project> + database/external/municipalities.db
+    DB_FOREIGN_KEYS=false
+    ```
  + and Email settings
     ```bash
     MAIL_MAILER=smtp
@@ -54,7 +60,7 @@
     MAIL_FROM_ADDRESS=some-gmail-account@gmail.com
     MAIL_FROM_NAME="${APP_NAME}"
     ```
- +  With your database running:
+   Last, with your database running:
     ```bash
     php artisan key:generate
     php artisan migrate
