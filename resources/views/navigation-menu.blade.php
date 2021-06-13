@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100"  style="background-color: #212121;">
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100"  style="background-color: #212121 !important;">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" >
         <div class="flex justify-between h-16">
@@ -146,6 +146,9 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('geoanalysis.mapview') }}" :active="request()->routeIs('geoanalysis.mapview')">
+                {{ __('Mapview') }}
             </x-jet-responsive-nav-link>
         </div>
 
