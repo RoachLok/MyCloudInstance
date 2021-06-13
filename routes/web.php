@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\UserLogs;
 use App\Http\Controllers\Municipalities;
+use App\Http\Controllers\Geolocations;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,14 +66,20 @@ Route::middleware(['auth:sanctum', 'is_admin'])->get('/user/mapview', function (
     return view('geoanalysis.mapview');
 })->name('geoanalysis.mapview');
 
-Route::middleware(['auth:sanctum', 'is_admin'])->get('/login_logs/{test}', [UserLogs::class, 'index'])->name('userlogs.all');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/login_logs', [UserLogs::class, 'user_logs'])->name('userlogs.user');
+// UserLogs data queries.
+Route::middleware(['auth:sanctum', 'is_admin']) ->get('/login_logs/{test}'   , [UserLogs::class, 'index'])       ->name('userlogs.all'           );
+Route::middleware(['auth:sanctum', 'is_admin']) ->get('/list_users'          , [UserLogs::class, 'list_users'])  ->name('userlogs.userList'      );
+Route::middleware(['auth:sanctum', 'verified']) ->get('/login_logs'          , [UserLogs::class, 'user_logs'])   ->name('userlogs.user'          );
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/municipalities', [Municipalities::class, 'index'])->name('municipalities.all');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/despo_muni', [Municipalities::class, 'despo'])->name('municipalities.despo');
-
+// Municipalities data queries.
+Route::middleware(['auth:sanctum', 'verified'])->get('/municipalities'      , [Municipalities::class, 'index']) ->name('municipalities.all'     );
+Route::middleware(['auth:sanctum', 'verified'])->get('/despo_muni'          , [Municipalities::class, 'despo']) ->name('municipalities.despo'   );
+Route::middleware(['auth:sanctum', 'verified'])->get('/get_ac'              , [Municipalities::class, 'auco'])  ->name('municipalities.auco'    );
+Route::middleware(['auth:sanctum', 'verified'])->get('/get_city/{from}'     , [Municipalities::class, 'city'])  ->name('municipalities.city'    );
+Route::middleware(['auth:sanctum', 'verified'])->get('/get_muni/{from}'     , [Municipalities::class, 'muni'])  ->name('municipalities.muni'    );
+Route::middleware(['auth:sanctum', 'is_admin'])->post('/login_locs'         , [Geolocations::class, 'index'])   ->name('geolocations.all'       );
 
 
 Route::get('/test', function () {
@@ -80,8 +87,6 @@ Route::get('/test', function () {
 });
 
 //Route::get('/yikes',  
-
-
 
 
 /* 

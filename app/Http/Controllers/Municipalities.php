@@ -29,6 +29,48 @@ class Municipalities extends Controller
      */
     public function despo()
     {   
-        return  DB::connection('sqlite')->select('select * from municipa where (pop/area)<12.5 or (pop<230 and (pop/area)<15.6) order by pop;');
+        return  DB::connection('sqlite')->select('SELECT * FROM municipa WHERE (pop/area)<12.5 OR (pop<230 AND (pop/area)<15.6) ORDER BY pop;');
+    }
+
+    /**
+     * List distinct AACC from municipalities.
+     * 
+     * All user login logs
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function auco()
+    {   
+        return  DB::connection('sqlite')->select('SELECT DISTINCT auco FROM municipa;');
+    }
+
+    /**
+     * List distinct cities from municipalities.
+     * 
+     * All user login logs
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function city($from)
+    {   
+        if (strcmp($from, 'all'))
+            return DB::connection('sqlite')->select('SELECT DISTINCT city FROM municipa WHERE auco = "'.$from.'";');
+        
+        return  DB::connection('sqlite')->select('SELECT DISTINCT city FROM municipa;');
+    }
+
+    /**
+     * List distinct cities from municipalities.
+     * 
+     * All user login logs
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function muni($from)
+    {   
+        if (strcmp($from, 'all'))
+            return DB::connection('sqlite')->select('SELECT muni FROM municipa WHERE city = "'.$from.'";');
+        
+        return  DB::connection('sqlite')->select('SELECT muni FROM municipa;');
     }
 }

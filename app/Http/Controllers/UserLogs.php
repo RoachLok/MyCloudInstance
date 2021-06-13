@@ -36,6 +36,17 @@ class UserLogs extends Controller
     }
 
     /**
+     * Display a listing of all application users.
+     * 
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function list_users()
+    {   
+        return DB::select('SELECT id, name FROM users;');
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
