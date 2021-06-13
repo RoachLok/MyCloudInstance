@@ -9,25 +9,40 @@ use Illuminate\Support\Facades\DB;
 class UserLogs extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of all the logging logs in the app.
      * 
      * All user login logs
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($test = 'all')
     {   
-        return DB::select('select * from authentication_log');
+        if (strcmp($test, 'all'))
+            return DB::select('SELECT * FROM authentication_log WHERE authenticatable_id = '.$test);
+        
+        return DB::select('SELECT * FROM authentication_log');
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of all the logging logs in the app.
      * 
      * All user login logs
      *
      * @return \Illuminate\Http\Response
      */
-    public function test()
+    public function user_logs(Request $request)
+    {   
+        return DB::select('SELECT * FROM authentication_log WHERE authenticatable_id = '.$request->user()->id);
+    }
+
+    /**
+     * Display a listing of the municipalities.
+     * 
+     * All user login logs
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function municipalities()
     {   
         return  DB::connection('sqlite')->select('select * from municipa;');
     }

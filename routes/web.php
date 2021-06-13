@@ -60,13 +60,16 @@ Route::post('/email/verification-notification', function (Request $request) {
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/user/mapview', function () {
+Route::middleware(['auth:sanctum', 'is_admin'])->get('/user/mapview', function () {
     return view('geoanalysis.mapview');
 })->name('geoanalysis.mapview');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/login_logs', [UserLogs::class, 'index'])->name('userlogs.all');
+Route::middleware(['auth:sanctum', 'is_admin'])->get('/login_logs/{test}', [UserLogs::class, 'index'])->name('userlogs.all');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/municipalities', [UserLogs::class, 'test'])->name('userlogs.test');
+Route::middleware(['auth:sanctum', 'verified'])->get('/login_logs', [UserLogs::class, 'user_logs'])->name('userlogs.user');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/municipalities', [UserLogs::class, 'municipalities'])->name('userlogs.test');
+
 
 Route::get('/test', function () {
     return view('test');
