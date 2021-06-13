@@ -29,31 +29,54 @@
     <!-- Stylesheet -->
     <link href="./static/css/educa.css" rel="stylesheet" />
     <link href="./static/css/footer.css" rel="stylesheet" />
+    <link href="./static/css/nav.css" rel="stylesheet">
 
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-light">
-        <a class="btn navbar-brand nav-btn" href="/"> <img src="./static/img/logo.png" width="36" height="25" class="d-inline-block align-top" alt="mci-ico" style="margin-top: -13%;"> </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                <a class="btn nav-btn nav-link" href="/education">Home</a>
-                </li>
-            </ul>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup" name="nav-collapsers" style="color: white;">
-                <a class="btn nav-btn nav-link" href=""> Login </a>    
-                <a class="btn nav-link nav-btn" href=""> Register </a>
-            </div>
+  <!-- NavBar -->
+  <nav id="home" class="navbar navbar-expand-lg fixed-top navbar-dark snap-scroll scrolling-navbar">
+    <a class="btn navbar-brand nav-btn" href="/"> <img src="./static/img/logo.png" width="36" height="25" class="d-inline-block align-top" alt="mci-ico" style="margin-top: -13%;"> </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup" name="nav-collapsers">
+        <div class="navbar-nav">
+            <a class="btn btn-outline-white nav-btn nav-link" href="#features"> Features </a>
+            <li class="nav-item dropdown">
+                <a class="btn btn-outline-white nav-btn nav-link dropdown-toggle" href="#" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Coding
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="./gnu">C++ GNU</a>
+                    <a class="dropdown-item" >Jupyter Notebook</a>
+                    <a class="dropdown-item" href="./java_editor">Java</a>
+                </div>
+            </li>
+            <a class="btn btn-outline-white nav-btn nav-link" href="/education"> Education </a>
+            <li class="nav-item dropdown">
+                <a class="btn btn-outline-white nav-btn nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Instances
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Linux Mint</a>
+                    <a class="dropdown-item" href="#">Ubuntu Server</a>
+                    <a class="dropdown-item" href="#">Windows Server</a>
+                    <a class="dropdown-item disabled" href="#">More to come...</a>
+                </div>
+            </li>
+            <a class="btn btn-outline-white nav-btn nav-link" href="/about"> About Us </a>
+            <a class="btn btn-outline-white nav-btn nav-link" href="https://github.com/RoachLok/MyCloudInstance"> GitHub </a>
         </div>
+      </div>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup" name="nav-collapsers">
+        <a class="btn btn-outline-white nav-btn nav-link" href="login"> Login </a>    
+        <a class="btn btn-outline-white nav-link nav-btn" href="register"> Register </a>
+      </div>
     </nav>
     
     <!--Contenidos-->
     <div class="candt">
-        <img class="headerimg" src="./static/img/javacourse.png" alt="Card image cap" style="width: 100%; border-radius: 20px; height: auto; margin-bottom: 4%;">
+        <img class="headerimg" src="./static/img/javacourse.png" alt="Card image cap" style="width: 100%; border-radius: 20px; height: auto; margin-bottom: 4%; margin-top: 4rem;">
         <h1 style="color: white; margin-bottom: 2%;">Basic java coding course:</h1>
         <div class="card-deck">
             <div class="card border-dark mb-3 coursecard">
