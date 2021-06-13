@@ -3,6 +3,6 @@
     <p>
         <?php
             use Http\Controllers\UserLogs;
-            echo Auth::user()->name.'<br>'.Auth::user()->previousLoginAt().'<br>';
+            echo Auth::user()->name.'<br>'.Auth::user()->previousLoginAt().'<br>'.Auth::user()->is_admin;
         ?>
     </p>
