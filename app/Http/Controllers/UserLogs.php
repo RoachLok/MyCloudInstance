@@ -36,18 +36,6 @@ class UserLogs extends Controller
     }
 
     /**
-     * Display a listing of the municipalities.
-     * 
-     * All user login logs
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function municipalities()
-    {   
-        return  DB::connection('sqlite')->select('select * from municipa;');
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

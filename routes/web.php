@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\UserLogs;
+use App\Http\Controllers\Municipalities;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,7 +69,10 @@ Route::middleware(['auth:sanctum', 'is_admin'])->get('/login_logs/{test}', [User
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/login_logs', [UserLogs::class, 'user_logs'])->name('userlogs.user');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/municipalities', [UserLogs::class, 'municipalities'])->name('userlogs.test');
+Route::middleware(['auth:sanctum', 'verified'])->get('/municipalities', [Municipalities::class, 'index'])->name('municipalities.all');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/despo_muni', [Municipalities::class, 'despo'])->name('municipalities.despo');
+
 
 
 Route::get('/test', function () {
