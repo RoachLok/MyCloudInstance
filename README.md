@@ -11,6 +11,7 @@
  +  Composer php dependency manager.
  +  A MySQL DB service running with a copy of the project .sql. Can be on a different system.
  +  A system able to run docker for instance dispatching (Not yet needed).
+ +  If on Windows, bash is needed to execute the .sh file for js_dependency_setup. Or just manually execute the commands.
 
 
 #### Run the project
@@ -19,6 +20,7 @@
     git clone https://github.com/RoachLok/MyCloudInstance
     cd MyCloudInstance
     composer install
+    bash js_dependency_setup.sh
    ```
    Copy .env.example file and name it .env. 
    ```bash
@@ -60,13 +62,13 @@
     MAIL_FROM_ADDRESS=some-gmail-account@gmail.com
     MAIL_FROM_NAME="${APP_NAME}"
     ```
-   Last, with your database running:
-    ```bash
-    php artisan key:generate
-    php artisan migrate
-    php artisan storage:link
-    php artisan serve
-    ```
+Last, with your database running:
+   ```bash
+   php artisan key:generate
+   php artisan migrate
+   php artisan storage:link
+   php artisan serve
+   ```
 
 ## Main Development checkpoints
 
