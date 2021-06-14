@@ -1,0 +1,448 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "My Cloud Instance API Documentation",
+        "description": "My Cloud Instance is a cloud computing platform for instance hosting, cloud shell's and coding resources.",
+        "contact": {
+            "email": "admin@admin.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/": {
+            "get": {
+                "tags": [
+                    "Path Routes"
+                ],
+                "description": "Home page",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/about": {
+            "get": {
+                "tags": [
+                    "Path Routes"
+                ],
+                "description": "About page",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/gnu": {
+            "get": {
+                "tags": [
+                    "Path Routes"
+                ],
+                "description": "Gnu page",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/education": {
+            "get": {
+                "tags": [
+                    "Path Routes"
+                ],
+                "description": "Education page",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/cursojava": {
+            "get": {
+                "tags": [
+                    "Path Routes"
+                ],
+                "description": "Java course page",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/tutorial": {
+            "get": {
+                "tags": [
+                    "Path Routes"
+                ],
+                "description": "Tutorial page",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/email/verify": {
+            "get": {
+                "tags": [
+                    "Verified Path Routes"
+                ],
+                "summary": "Get verified email.",
+                "description": "Tutorial page",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/email/verify/{id}/{hash}": {
+            "get": {
+                "tags": [
+                    "Verified Path Routes"
+                ],
+                "summary": "Get verified email hash.",
+                "description": "Returns login logs data. It requests data from all possible user login logs. This call can only be made by users of the admin type, since this data is sensitive and will only be accessible to authorized users.",
+                "operationId": "verification.verify",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "hash",
+                        "in": "path",
+                        "description": "hash",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Not verified"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/email/verification-notification": {
+            "get": {
+                "tags": [
+                    "Verified Path Routes"
+                ],
+                "summary": "Get verified email notification.",
+                "description": "verified email",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/user/mapview": {
+            "get": {
+                "tags": [
+                    "Admin Path Routes"
+                ],
+                "summary": "Shows the mapview in the user dashboard",
+                "description": "Requests the view of the map of Spain for the user and to be able to make the different queries about the autonomous communities, municipalities and cities.",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Not admin"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/login_logs/{test}": {
+            "get": {
+                "tags": [
+                    "User Logs Data Queries"
+                ],
+                "summary": "Get login logs.",
+                "description": "Returns login logs data. It requests data from all possible user login logs. This call can only be made by users of the admin type, since this data is sensitive and will only be accessible to authorized users.",
+                "operationId": "index",
+                "parameters": [
+                    {
+                        "name": "test",
+                        "in": "path",
+                        "description": "test id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Not admin"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/list_users": {
+            "get": {
+                "tags": [
+                    "User Logs Data Queries"
+                ],
+                "summary": "Get user lists",
+                "description": "Returns a list with all users registered in our internal database",
+                "operationId": "list_users",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Not admin"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/login_logs": {
+            "get": {
+                "tags": [
+                    "User Logs Data Queries"
+                ],
+                "summary": "Get login logs from the requesting user",
+                "description": "Returns login logs data. It requests data from the requesting user login logs. This call can only be made by users of the verified type, since this data is sensitive and will only be accessible to verified users.",
+                "operationId": "user_logs",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Not verified"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/municipalities": {
+            "get": {
+                "tags": [
+                    "Municipalities Data Queries"
+                ],
+                "summary": "Get municipalities from the request",
+                "description": "Returns a list with all the municipalities that are stored in our external database municipalities.db",
+                "operationId": "index",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Not verified"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/despo_muni": {
+            "get": {
+                "tags": [
+                    "Municipalities Data Queries"
+                ],
+                "summary": "Get depopulated municipalities from the request",
+                "description": "Returns a list with all the depopulated municipalities that are stored in our external database municipalities.db",
+                "operationId": "despo",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Not verified"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/get_ac": {
+            "get": {
+                "tags": [
+                    "Municipalities Data Queries"
+                ],
+                "summary": "Get autonomous communities from the request",
+                "description": "Returns a list with all the autonomous communities that are stored in our external database municipalities.db",
+                "operationId": "auco",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Not verified"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/get_city/{from}": {
+            "get": {
+                "tags": [
+                    "Municipalities Data Queries"
+                ],
+                "summary": "Get cities from the selected autonomous community",
+                "description": "Returns city data. It requests data of the selected city from the selected autonomous community. This call can only be made by users of the verified type, since this data is sensitive and will only be accessible to authorized users.",
+                "operationId": "city",
+                "parameters": [
+                    {
+                        "name": "from",
+                        "in": "path",
+                        "description": "autonomous community id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Not verified"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/get_muni/{from}": {
+            "get": {
+                "tags": [
+                    "Municipalities Data Queries"
+                ],
+                "summary": "Get municipalities from the selected city",
+                "description": "Returns municipalities data. It requests data of the selected municipality from the selected city. This call can only be made by users of the verified type, since this data is sensitive and will only be accessible to authorized users.",
+                "operationId": "muni",
+                "parameters": [
+                    {
+                        "name": "from",
+                        "in": "path",
+                        "description": "city id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Not verified"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/login_locs": {
+            "get": {
+                "tags": [
+                    "Municipalities Data Queries"
+                ],
+                "summary": "Get login logs from all the users",
+                "description": "Returns a list with all the login logs of all users with their corresponding geolocation data",
+                "operationId": "index",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Not admin"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Projects",
+            "description": "API Endpoints of Projects"
+        }
+    ],
+    "security": [
+        []
+    ]
+}
