@@ -185,14 +185,19 @@
                             <h3 class="subtitle" style="font-weight: bolder;">As Premise: Simplicity and Efficiency</h3>
                         </div>
                         <div class="row" style="text">
-                            <p style="text-align: justify;">Haz que los adversarios vean como extraordinario lo que es ordinario para ti; haz que vean como ordinario lo que es extraordinario para ti.</p>
+                            <p style="text-align: justify;">Our website has it all covered for every user out there no matter 
+                            their previous knowledge. Offering simplicity and efficiency above all. So that the user can undertand 
+                            and will want to continue learning with us. We want the user to achieve the best learning experience, 
+                            for such, our main focus is them. A happy user means a happy producer. We want to help those who 
+                            most need it, from disadvantage areas, so they feel included in modern technologies. Closing that technological gap.</p>
                         </div>
                     </div>
                 </div>
                 <div class="row" style="padding-top: 2rem; padding botom: 10rem;">
                     <div class="col">
-                        <p>Nuestra plataforma ofrece varios servicios SaaS IaaS y PaaS. Puede conocer mas sobre el concepto de clopud computing
-                            mediante el siguiente video.
+                        <p style="text-align: justify;">If you are interested in the service we offere and the technologies we use (Cloud computing), 
+                            you can click on the right hand side video from Amazon Web Service to learn more about Cloud Computing in short explanation, 
+                            to get a view of what we offer.
                         </p>
 
                     </div>
