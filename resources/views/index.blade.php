@@ -73,9 +73,14 @@
             </div>
 
             @if (auth()->user())
-                <button style="border-radius: 50%; width: 50px; height: 50px;" class="bg-warning" href="/dashboard">
-                    <img style="border-radius: 50%; width: 40px; height: 40px;" class="" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
-                </button>
+                <div class="btn-group dropleft">
+                    <button style="border-radius: 50%; width: 50px; height: 50px;" type="button" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img style="border-radius: 50%; width: 40px; height: 40px;" class="" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                    </button>
+                    <div style="z-index:9999;" class="dropdown-menu">
+                            <a class="dropdown-item">Loading Users ...</a>
+                    </div>
+                </div>
             @else
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup" name="nav-collapsers">
                     <a class="btn btn-outline-white nav-btn nav-link" href="login"> Login </a>    
