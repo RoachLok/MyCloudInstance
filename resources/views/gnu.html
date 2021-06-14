@@ -22,6 +22,7 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
         <!-- Stylesheets -->
         <link href="./static/css/style.css" rel="stylesheet">
+        <link href="./static/css/footer.css" rel="stylesheet">
 
 
         <!-- SCRIPTS -->
@@ -42,50 +43,6 @@
     <body class="placehold-color">
         <!-- NavBar -->
         <nav id="home" class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark snap-scroll hidden" style="visibility: hidden;">
-            <a class="btn navbar-brand nav-btn" href="./index.html"> <img src="./static/img/logo.png" width="36" height="25" class="d-inline-block align-top" alt="mci-ico" style="margin-top: -13%;"> </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse overlap bg-dark" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="btn btn-outline-light nav-btn nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Settings
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Change this</a>
-                            <a class="dropdown-item" href="#">Change that</a>
-                            <a class="dropdown-item" href="#">Reset this</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="btn btn-outline-light nav-btn nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Environments
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="./gnu.html">C++ GNU</a>
-                            <a class="dropdown-item" href="#">Jupyter Notebook</a>
-                            <a class="dropdown-item" href="#">Java</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="btn btn-outline-light nav-btn nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Instances
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Linux Mint</a>
-                            <a class="dropdown-item" href="#">Ubuntu Server</a>
-                            <a class="dropdown-item" href="#">Windows Server</a>
-                            <a class="dropdown-item disabled" href="#">More to come...</a>
-                        </div>
-                    </li>
-                    <a class="btn btn-outline-light nav-btn nav-link"> docs </a>
-                </div>
-            </div>
-            <div class="btn-group collapse navbar-collapse overlap bg-dark justify-content-end" id="navbarNavAltMarkup">
-                <a class="btn btn-outline-light nav-link nav-btn btn-signup" href="signin.html"> Login </a>
-                <a class="btn btn-outline-light nav-link nav-btn btn-signup" href="signup.html"> Register </a>
-            </div>
         </nav> 
 
         <!-- Text Editor -->
@@ -94,7 +51,7 @@
                 <span class="sidebar">
                     <ul class="sidebar-nav">
                         <li class="logo">
-                            <a href="./index.html" class="sidebar-link">
+                            <a href="/" class="sidebar-link">
                                 <span class="link-text logo-text">Home</span>
                                 <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="angle-double-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-angle-double-right fa-w-14 fa-5x">
                                     <g class="fa-group">
@@ -200,9 +157,9 @@
                         </li>
                     </ul>
                     <div class="tab-content code-frame" id="nav-tabContent">
-                        <iframe id="iframe1" class="code-frame tab-pane fade show active" role="tabpanel" src="./editor.php?tab&tabId=3&contentType=c_cpp" name="test"></iframe>
-                        <iframe id="iframe2" class="code-frame tab-pane fade" role="tabpanel" src="./editor.php?tab&tabId=11&contentType=c_cpp" name="test"></iframe>
-                        <iframe id="iframe3" class="code-frame tab-pane fade" role="tabpanel" src="./editor.php?tab&tabId=12&contentType=c_cpp" name="test"></iframe>
+                        <iframe id="iframe1" class="code-frame tab-pane fade show active" role="tabpanel" src="./editor" name="test"></iframe>
+                        <iframe id="iframe2" class="code-frame tab-pane fade" role="tabpanel" src="./editor" name="test"></iframe>
+                        <iframe id="iframe3" class="code-frame tab-pane fade" role="tabpanel" src="./editor" name="test"></iframe>
                     </div>
                 </div>
             </section>
@@ -217,7 +174,7 @@
             <div class="container"><div class="row">
                 <span class="col-xl-5">
                     <div>   
-                        <a class="navbar-brand" href="index.html"><b class="footer-title">My Cloud Instance</b></a>
+                        <a class="navbar-brand" href="/"><b class="footer-title">My Cloud Instance</b></a>
                         <p style="margin-top: 1em;">Simple instance and environment hosting platform where services are offered with simplicity as a premise.</p>
                         <p style="margin-top: 4em;">©  2021 MyCloudInstance. All Rights Reserved.</p>
                     </div>
@@ -243,7 +200,7 @@
                 <span class="col-xl-3">
                     <h5>Links</h5>
                     <ul class="list-lash">
-                        <li><a href="#home">About</a></li>
+                        <li><a href="/about">About</a></li>
                         <li><a href="#home">Projects</a></li>
                         <li><a href="#home">Blog</a></li>
                         <li><a href="#home">Contact</a></li>
