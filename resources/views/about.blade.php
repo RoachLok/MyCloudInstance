@@ -69,10 +69,22 @@
               <a class="btn nav-btn nav-link" href="https://github.com/RoachLok/MyCloudInstance" style="color: white;"> GitHub </a>
           </div>
       </div>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup" name="nav-collapsers" style="color: white;">
-        <a class="btn nav-btn nav-link" href="login"> Login </a>    
-        <a class="btn nav-link nav-btn" href="register"> Register </a>
-      </div>
+      @if (auth()->user())
+        <div class="btn-group dropleft">
+          <button style="margin-left: 0px;" type="button" class="fixed" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img class="" style="border-radius: 50%; width: 40px; height: 40px;" class="" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+          </button>
+          <div style="z-index:9999;" class="dropdown-menu">
+            <a class="dropdown-item" href="dashboard">Dashboard</a>
+            <a class="dropdown-item" href="user/profile">Profile</a>
+          </div>
+        </div>
+      @else
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup" name="nav-collapsers">
+          <a class="btn btn-outline-white nav-btn nav-link" href="login"> Login </a>    
+          <a class="btn btn-outline-white nav-link nav-btn" href="register"> Register </a>
+        </div>
+      @endif
     </nav>
 
     <!-- Content -->

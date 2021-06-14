@@ -73,9 +73,15 @@
             </div>
 
             @if (auth()->user())
-                <button style="border-radius: 50%; width: 50px; height: 50px;" class="bg-warning" href="/dashboard">
-                    <img style="border-radius: 50%; width: 40px; height: 40px;" class="" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
-                </button>
+                <div class="btn-group dropleft">
+                    <button style="margin-left: 0px;" type="button" class="fixed" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="" style="border-radius: 50%; width: 40px; height: 40px;" class="" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                    </button>
+                    <div style="z-index:9999;" class="dropdown-menu">
+                            <a class="dropdown-item" href="dashboard">Dashboard</a>
+                            <a class="dropdown-item" href="user/profile">Profile</a>
+                    </div>
+                </div>
             @else
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup" name="nav-collapsers">
                     <a class="btn btn-outline-white nav-btn nav-link" href="login"> Login </a>    
@@ -194,7 +200,7 @@
                         <iframe width="400" height="225" src="https://www.youtube.com/embed/dH0yz-Osy54" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
-            </div> 
+            </div>
         </section>
         
         <section id="onlineide">
