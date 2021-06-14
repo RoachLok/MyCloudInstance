@@ -112,27 +112,27 @@
             <div style="background-color: #333333;  margin-right:auto;">
                 <div style="display: flex; flex-wrap: wrap; margin-left: 2vw; align-items: center; margin-bottom: 0.2rem;">
                     <h1 style="font-size: 1rem; color:white; padding-top:0.25rem; padding-left:1rem; min-width: 180px; width: 6vw;">Geographical Filters:</h1>
-                    <div class="btn-group dropdown" >
+                    <div class="btn-group dropdown">
                         <button id="auco_drop_btn" style="width: 13vw; min-width: 185px;" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 AACC
                         </button>
-                        <div id="auco_dropdown" class="dropdown-menu" style="z-index:9999;">
+                        <div id="auco_dropdown" class="dropdown-menu" style="z-index:9999; overflow-y: scroll; max-height: 25vh;">
                                 <a class="dropdown-item">Loading Aucos ...</a>
                         </div>
                     </div>
-                    <div class="btn-group dropdown" >
+                    <div class="btn-group dropdown">
                         <button id="city_drop_btn" style="width: 13vw; min-width: 185px;" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 City
                         </button>
-                        <div id="city_dropdown" class="dropdown-menu" style="z-index:9999;" >
+                        <div id="city_dropdown" class="dropdown-menu" style="z-index:9999; overflow-y: scroll; max-height: 25vh;" >
                                 <a class="dropdown-item">Waiting for auco.</a>
                         </div>
                     </div>
-                    <div class="btn-group dropdown" >
+                    <div class="btn-group dropdown">
                         <button id="muni_drop_btn" style="width: 13vw; min-width: 185px;" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Muni
                         </button>
-                        <div id="muni_dropdown" class="dropdown-menu" style="z-index:9999;" aria-labelledby="navbarDropdownMenuLink">
+                        <div id="muni_dropdown" class="dropdown-menu" style="z-index:9999; overflow-y: scroll; max-height: 25vh;" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item">Waiting for city.</a>
                         </div>
                     </div>
@@ -141,11 +141,11 @@
             <div style="background-color: #333333; height:900px; margin-right:auto; ">
                 <div style="display: flex; flex-wrap: wrap; margin-left: 2vw; align-items: center; margin-bottom: 0.2rem;">
                     <h1 style="font-size: 1rem; color:white; padding-top:0.25rem; padding-left:1rem; min-width: 180px; width: 6vw;">User Filters:</h1>
-                    <div class="btn-group dropright" >
+                    <div class="btn-group dropright">
                         <button id="user_drop_btn" style="width: 13vw;  min-width: 200px;" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             User Selector
                         </button>
-                        <div id="user_dropdown" style="z-index:9999;" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <div id="user_dropdown" style="z-index:9999; overflow-y: scroll; max-height: 25vh;" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item">Loading Users ...</a>
                         </div>
                     </div>
