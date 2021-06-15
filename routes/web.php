@@ -30,6 +30,10 @@ Route::get('/gnu', function () {
     return view('gnu');
 });
 
+Route::get('/editor', function () {
+    return view('editor');
+});
+
 Route::get('/education', function () {
     return view('education');
 });
@@ -79,6 +83,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/despo_muni'          , [M
 Route::middleware(['auth:sanctum', 'verified'])->get('/get_ac'              , [Municipalities::class, 'auco'])  ->name('municipalities.auco'    );
 Route::middleware(['auth:sanctum', 'verified'])->get('/get_city/{from}'     , [Municipalities::class, 'city'])  ->name('municipalities.city'    );
 Route::middleware(['auth:sanctum', 'verified'])->get('/get_muni/{from}'     , [Municipalities::class, 'muni'])  ->name('municipalities.muni'    );
+
+// Geolocations data queries.
 Route::middleware(['auth:sanctum', 'is_admin'])->post('/login_locs'         , [Geolocations::class, 'index'])   ->name('geolocations.all'       );
 
 
