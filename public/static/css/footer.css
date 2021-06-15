@@ -21,12 +21,12 @@ footer a{
 
 footer h5 {
     font-weight: bold;
-    color: #07518f;
+    color: #86df7e;
     margin-top: 0.5rem;
 }
 
 .footer-title {
-    color: #ee9107;
+    color: #86df7e;
 }
 
 .list-lash li {
@@ -37,7 +37,7 @@ footer h5 {
 .list-lash li a {
     display: inline-block;
 
-    background: linear-gradient(to right, #07518f 50%, white 50%);
+    background: linear-gradient(to right, #86df7e 50%, white 50%);
     
     -webkit-background-clip: text;
     background-clip: text;

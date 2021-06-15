@@ -1,33 +1,33 @@
 html,
 body {
   height: 100%;
-  background-color: #212121;
+  background-color: #5a9e54;
 }
 
 /*Adaptamos los colores del footer as los colores de la seccion educativa*/
 .navbar {
-  background: #595959 !important;
+  background: #000000 !important;
 }
 
 footer{
-  background: #595959 !important;
+  background: #000000 !important;
 }
 
 footer h5{
-  color: #2f92e4 !important;
+  color: #86df7e !important;
 }
 
 /*Estilo de los botones*/
 .acceso {
-  background-color: #ff834e;
-  background-image: linear-gradient(62deg, #ff834e 0%, #fdc426 86%);
+  background-color: #86df7e;
+  background-image: linear-gradient(62deg, #86df7e 0%, #2b7216 86%);
   color: black !important;
   text-shadow: 2px, 2px, black;
 }
 
 .btncurso {
-  background-color: #0579bb;
-  background-image: linear-gradient(34deg, #0579bb 0%, #80D0C7 94%); 
+  background-color: #86df7e;
+  background-image: linear-gradient(34deg, #86df7e 0%, #2b7216 94%); 
   margin-top: 26px;
 }
 

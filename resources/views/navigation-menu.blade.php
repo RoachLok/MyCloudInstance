@@ -19,7 +19,13 @@
                         {{ __('Profile') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('geoanalysis.mapview') }}" :active="request()->routeIs('geoanalysis.mapview')" style="color: white;">
-                        {{ __('Mapview') }}
+                        {{ __('Mapview Original') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('geoanalysis.mapviewcopy') }}" :active="request()->routeIs('geoanalysis.mapviewcopy')" style="color: white;">
+                        {{ __('Mapview Copia') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('login_logs') }}" :active="request()->routeIs('login_logs')" style="color: white;">
+                        {{ __('Login Logs') }}
                     </x-jet-nav-link>
                 </div>
             </div>
