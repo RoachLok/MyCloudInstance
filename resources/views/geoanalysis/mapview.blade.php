@@ -149,9 +149,9 @@
                             <a class="dropdown-item">Loading Users ...</a>
                         </div>
                     </div>
-                    <div class="form-check form-switch">
+                    <div class="form-check form-switch" style="margin-left: 6vw;">
                         <label class="form-check-label card-text" for="despo">
-                            <li style="color: white;"> Despoblados: </li>
+                            <p style="color: white;"> Filter by "despoblación" risk: </p>
                         </label>
                         <input class="form-check-input" type="checkbox" id="despo" style="margin-left: 15px;"/>
                     </div>
