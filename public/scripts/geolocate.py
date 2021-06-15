@@ -23,7 +23,7 @@ while i < int(sys.argv[2])*2+4:
 
     gocode_token = '19d409aac95d62312d584d88b1d9774f'   # For testing
     geocode_url = 'http://api.positionstack.com/v1/reverse?access_key=' + gocode_token + '&query=' + str(lat) + ',' + str(lon)
-    print(geocode_url)
+    #print(geocode_url)
     r_geocode = requests.get(geocode_url)
     geocode_json = json.loads(r_geocode.text)
 
