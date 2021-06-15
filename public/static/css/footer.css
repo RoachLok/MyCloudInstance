@@ -8,7 +8,7 @@ html {
 
 footer {
     color: white;
-    background: #212121;
+    background:rgb(167, 11, 11) !important;
     font-family: "Roboto",sans-serif;
     padding-top: 1.5vh;
     scroll-snap-align: end;
@@ -21,12 +21,12 @@ footer a{
 
 footer h5 {
     font-weight: bold;
-    color: #07518f;
+    color: #008cff;
     margin-top: 0.5rem;
 }
 
 .footer-title {
-    color: #ee9107;
+    color: #ffe600;
 }
 
 .list-lash li {
