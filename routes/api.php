@@ -32,9 +32,6 @@ Route::middleware('token_auth')->post('/get_ac'             , [Municipalities::c
 Route::middleware('token_auth')->post('/get_city/{from}'    , [Municipalities::class, 'city'])  ->name('municipalities.token.city'   );
 Route::middleware('token_auth')->post('/get_muni/{from}'    , [Municipalities::class, 'muni'])  ->name('municipalities.token.muni'   );
 
-// Geolocations data queries.
-Route::middleware('token_auth')->post('/login_locs'         , [Geolocations::class, 'index'])   ->name('geolocations.token.all'      );
-
 /*Route::middleware('auth:sanctum')->get('/signin', function Request $request) {
     $token = $request->session()->token();
 

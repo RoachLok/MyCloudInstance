@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class geolocations extends Controller
 {
     /**
-     * Display a listing of all the logging logs in the app.
+     * Translate ips into geolocations
      * 
      * All user login logs
      *
@@ -17,6 +17,7 @@ class geolocations extends Controller
      */
     public function index(Request $request)
     {   
+
         $geoloc_json = shell_exec('python scripts/geolocate.py '.$request->user_id.' '.$request->count.' '.$request->items);
         
         return $geoloc_json;
