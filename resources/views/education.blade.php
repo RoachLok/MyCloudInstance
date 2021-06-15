@@ -67,10 +67,23 @@
             <a class="btn btn-outline-white nav-btn nav-link" href="https://github.com/RoachLok/MyCloudInstance"> GitHub </a>
         </div>
     </div>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup" name="nav-collapsers">
-      <a class="btn btn-outline-white nav-btn nav-link" href="login"> Login </a>    
-      <a class="btn btn-outline-white nav-link nav-btn" href="register"> Register </a>
-    </div>
+
+    @if (auth()->user())
+      <div class="btn-group dropleft">
+        <button style="margin-left: 0px;" type="button" class="fixed" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img class="" style="border-radius: 50%; width: 40px; height: 40px;" class="" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+        </button>
+        <div style="z-index:9999;" class="dropdown-menu">
+          <a class="dropdown-item" href="dashboard">Dashboard</a>
+          <a class="dropdown-item" href="user/profile">Profile</a>
+        </div>
+      </div>
+    @else
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup" name="nav-collapsers">
+        <a class="btn btn-outline-white nav-btn nav-link" href="login"> Login </a>    
+        <a class="btn btn-outline-white nav-link nav-btn" href="register"> Register </a>
+      </div>
+    @endif
   </nav>
 
   <!-- Coding courses -->
@@ -131,7 +144,7 @@
             <p class="card-text">Join this course to learn all about this very used coding language.</p>
           </div>
           <div class="card-footer">
-            <a class="btn btn-dark acceso" href="/tutorial" style="border-radius: 30px;">Access tutorials</a>
+            <a class="btn btn-dark acceso" style="border-radius: 30px;">Access tutorials</a>
           </div>
         </div>
         <div class="card">
@@ -141,7 +154,7 @@
             <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
           </div>
           <div class="card-footer">
-            <a class="btn btn-dark acceso" href="/tutorial" style="border-radius: 30px;">Access tutorials</a>
+            <a class="btn btn-dark acceso" style="border-radius: 30px;">Access tutorials</a>
           </div>
         </div>
         <div class="card">
@@ -151,7 +164,7 @@
             <p class="card-text">This t. This card has even longer content than the first to show that equal height action.</p>
           </div>
           <div class="card-footer">
-            <a class="btn btn-dark acceso" href="/tutorial" style="border-radius: 30px;">Access tutorials</a>
+            <a class="btn btn-dark acceso" style="border-radius: 30px;">Access tutorials</a>
           </div>
         </div>
       </div>

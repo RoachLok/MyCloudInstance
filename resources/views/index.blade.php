@@ -74,11 +74,12 @@
 
             @if (auth()->user())
                 <div class="btn-group dropleft">
-                    <button style="border-radius: 50%; width: 50px; height: 50px;" type="button" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img style="border-radius: 50%; width: 40px; height: 40px;" class="" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                    <button style="margin-left: 0px;" type="button" class="fixed" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="" style="border-radius: 50%; width: 40px; height: 40px;" class="" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                     </button>
                     <div style="z-index:9999;" class="dropdown-menu">
-                            <a class="dropdown-item">Loading Users ...</a>
+                            <a class="dropdown-item" href="dashboard">Dashboard</a>
+                            <a class="dropdown-item" href="user/profile">Profile</a>
                     </div>
                 </div>
             @else
@@ -184,14 +185,19 @@
                             <h3 class="subtitle" style="font-weight: bolder;">As Premise: Simplicity and Efficiency</h3>
                         </div>
                         <div class="row" style="text">
-                            <p style="text-align: justify;">Haz que los adversarios vean como extraordinario lo que es ordinario para ti; haz que vean como ordinario lo que es extraordinario para ti.</p>
+                            <p style="text-align: justify;">Our website has it all covered for every user out there no matter 
+                            their previous knowledge. Offering simplicity and efficiency above all. So that the user can undertand 
+                            and will want to continue learning with us. We want the user to achieve the best learning experience, 
+                            for such, our main focus is them. A happy user means a happy producer. We want to help those who 
+                            most need it, from disadvantage areas, so they feel included in modern technologies. Closing that technological gap.</p>
                         </div>
                     </div>
                 </div>
                 <div class="row" style="padding-top: 2rem; padding botom: 10rem;">
                     <div class="col">
-                        <p>Nuestra plataforma ofrece varios servicios SaaS IaaS y PaaS. Puede conocer mas sobre el concepto de clopud computing
-                            mediante el siguiente video.
+                        <p style="text-align: justify;">If you are interested in the service we offere and the technologies we use (Cloud computing), 
+                            you can click on the right hand side video from Amazon Web Service to learn more about Cloud Computing in short explanation, 
+                            to get a view of what we offer.
                         </p>
 
                     </div>
@@ -199,7 +205,7 @@
                         <iframe width="400" height="225" src="https://www.youtube.com/embed/dH0yz-Osy54" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
-            </div> 
+            </div>
         </section>
         
         <section id="onlineide">
