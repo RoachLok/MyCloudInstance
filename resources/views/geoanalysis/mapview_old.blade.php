@@ -103,24 +103,17 @@
         <x-jet-banner />
 
         @livewire('navigation-menu')
-        <div class="container" style="background-color: #fde0b5;">
+        <div class="container">
             <!-- Page Content -->
-            <div style="background-color: #fbcb83;  margin-right:auto; ">
-                <div style="display:flex; align-items: center;">
-                <h1 style="font-size: 2rem; color:#190f01; padding-top:0.25rem; padding-left:1rem;">Output Settings:</h1>
-                @if (Auth::user()->is_admin) 
-                <h1 style="font-size: 1.2rem; margin-left: 1rem; color:#190f01; padding-top:0.25rem; padding-left:1rem; min-width: 180px;"><?php echo 'Logged in as "'.Auth::user()->name.'" with role ADMIN.';?></h1>
-                @else
-                <h1 style="font-size: 1.2rem;  margin-left: 1rem; color:#190f01; padding-top:0.25rem; padding-left:1rem; min-width: 180px;"><?php echo 'Logged in as "'.Auth::user()->name.'" with role USER.';?></h1>
-                @endif
-                </div>
+            <div style="background-color: #333333;  margin-right:auto; ">
+                <h1 style="font-size: 2rem; color:white; padding-top:0.25rem; padding-left:1rem;">Output Settings:</h1>
                 <hr style="background-color: #ee9107; margin-left:0.75rem; margin-right:0.75rem; margin-top:0.25rem;">
             </div>
-            <div style="background-color: #fbcb83;  margin-right:auto;">
+            <div style="background-color: #333333;  margin-right:auto;">
                 <div style="display: flex; flex-wrap: wrap; margin-left: 2vw; align-items: center; margin-bottom: 0.2rem;">
-                    <h1 style="font-size: 1rem; color:#190f01; padding-top:0.25rem; padding-left:1rem; min-width: 180px; width: 6vw;">Geographical Filters:</h1>
+                    <h1 style="font-size: 1rem; color:white; padding-top:0.25rem; padding-left:1rem; min-width: 180px; width: 6vw;">Geographical Filters:</h1>
                     <div class="btn-group dropdown">
-                        <button id="auco_drop_btn" style="width: 13vw; min-width: 185px; background-color: #f8a220; " type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button id="auco_drop_btn" style="width: 13vw; min-width: 185px;" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 AACC
                         </button>
                         <div id="auco_dropdown" class="dropdown-menu" style="z-index:9999; overflow-y: scroll; max-height: 25vh;">
@@ -128,7 +121,7 @@
                         </div>
                     </div>
                     <div class="btn-group dropdown">
-                        <button id="city_drop_btn" style="width: 13vw; min-width: 185px; background-color: #f8a220;" type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button id="city_drop_btn" style="width: 13vw; min-width: 185px;" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 City
                         </button>
                         <div id="city_dropdown" class="dropdown-menu" style="z-index:9999; overflow-y: scroll; max-height: 25vh;" >
@@ -136,7 +129,7 @@
                         </div>
                     </div>
                     <div class="btn-group dropdown">
-                        <button id="muni_drop_btn" style="width: 13vw; min-width: 185px; background-color: #f8a220; " type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button id="muni_drop_btn" style="width: 13vw; min-width: 185px;" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Muni
                         </button>
                         <div id="muni_dropdown" class="dropdown-menu" style="z-index:9999; overflow-y: scroll; max-height: 25vh;" aria-labelledby="navbarDropdownMenuLink">
@@ -145,37 +138,29 @@
                     </div>
                 </div>
             </div>
-            <div style="background-color: #fbcb83; height:900px; margin-right:auto; ">
+            <div style="background-color: #333333; height:900px; margin-right:auto; ">
                 <div style="display: flex; flex-wrap: wrap; margin-left: 2vw; align-items: center; margin-bottom: 0.2rem;">
-                    @if (Auth::user()->is_admin)
-                    <h1 style="font-size: 1rem; color:#190f01; padding-top:0.25rem; padding-left:1rem; min-width: 180px; width: 6vw;">User Filters:</h1>
+                    <h1 style="font-size: 1rem; color:white; padding-top:0.25rem; padding-left:1rem; min-width: 180px; width: 6vw;">User Filters:</h1>
                     <div class="btn-group dropright">
-                        <button id="user_drop_btn" style="width: 13vw;  min-width: 200px; background-color: #f8a220; " type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button id="user_drop_btn" style="width: 13vw;  min-width: 200px;" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             User Selector
                         </button>
                         <div id="user_dropdown" style="z-index:9999; overflow-y: scroll; max-height: 25vh;" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item">Loading Users ...</a>
                         </div>
                     </div>
-                    @endif
-                    <div class="form-check form-switch" style="padding-left:1rem;">
+                    <div class="form-check form-switch" style="margin-left: 6vw;">
                         <label class="form-check-label card-text" for="despo">
-                            <p style="color: #190f01;"> Filter by "despoblación" risk: </p>
+                            <p style="color: white;"> Filter by "despoblación" risk: </p>
                         </label>
                         <input class="form-check-input" type="checkbox" id="despo" style="margin-left: 15px;"/>
                     </div>
-                    <div class="form-check form-switch" style="padding-left:3.45rem;">
-                        <label class="form-check-label card-text" for="movil">
-                            <p style="color: #190f01;"> Filter by mobile device: </p>
-                        </label>
-                        <input class="form-check-input" type="checkbox" id="movil" style="margin-left: 15px;"/>
-                    </div>
-                    <button class="btn btn-unique btn-outline-light" onclick="handleUserLogs()" style=" background-color: #07518f !important; margin-left:auto; min-width:149px;" title="Lanzar">
+                    <button class="btn btn-unique btn-outline-light" onclick="handleUserLogs()" style=" background-color: #880e4f !important; margin-left:auto; min-width:149px;" title="Lanzar">
                      Search <i class="fas fa-search-location ml-2"></i>
                     </button> 
                 </div>
                 <div style="height:900px;" id="map"></div>
-                <footer class="text-muted text-md text-center text-white" style="background-color: white;">&copy; <a href="/">MCI</a> - 2021</footer>
+                <footer class="text-muted text-md text-center text-white">&copy; <a href="/">MCI</a> - 2021</footer>
             </div>
 
             <!-- map init -->
@@ -207,18 +192,11 @@
             <!-- get logs -->
             <script>
                 // if (row.authenticatable_id == "<?php echo Auth::user()->id; ?>") {
-
                 function handleUserLogs() {
                     // Create a request variable and assign a new XMLHttpRequest object to it.
                     const request = new XMLHttpRequest();
                     // Open a new connection, using the POST request on the URL endpoint.
-
-                    // Si el usuario es administrador, puede ver todos los logs, si es usuario solo puede ver los suyos.
-                    @if (Auth::user()->is_admin)
-                    request.open('GET', '../login_logs/all', true);
-                    @else
-                    request.open('GET', '../login_logs', true);
-                    @endif
+                    request.open('GET', 'http://rocho.duckdns.org/login_logs/all', true);
                     request.onload = function () {  // Process response somehow // A json can also be retrieved. 
                         test = this.response;
                         parsed_json = JSON.parse(test);
@@ -230,6 +208,7 @@
                                 else 
                                     seen_ip.set(row.ip_address, 1);
                             }
+                                //L.marker([42.3440, -3.6969]).addTo(map);
                         }
                         drawHeatMap(seen_ip);
                     }
@@ -259,7 +238,7 @@
                         break;
                     } 
                 }
-                @if (Auth::user()->is_admin)
+
                 function initUserDrop() {
                     // Create a request variable and assign a new XMLHttpRequest object to it.
                     const request = new XMLHttpRequest();
@@ -280,7 +259,6 @@
                     // Send request
                     request.send();
                 }
-                @endif
 
                 function initAucoDrop() {
                     // Create a request variable and assign a new XMLHttpRequest object to it.
@@ -373,25 +351,11 @@
                                     let geo  = loc.geo[0].Municipality.replace("�", "á");
 
                                     if (geo == muni ) {
-                                        @if (Auth::user()->is_admin) 
                                         latlong.push([lat, lon, seen_ip.get(loc.ip)*100]);
-                                        @else
-                                        latlong.push([lat, lon, seen_ip.get(loc.ip)*300]);
-                                        @endif
-                                        if ($('#movil').prop('checked')) {
-                                            L.marker([lat, lon]).addTo(map);
-                                        }
                                     }
                                 }
                             } else {
-                                @if (Auth::user()->is_admin) 
-                                    latlong.push([lat, lon, seen_ip.get(loc.ip)*100]);
-                                @else
-                                    latlong.push([lat, lon, seen_ip.get(loc.ip)*300]);
-                                @endif
-                                if ($('#movil').prop('checked')) {
-                                    L.marker([lat, lon]).addTo(map);
-                                }
+                                latlong.push([lat, lon, seen_ip.get(loc.ip)*100]);
                             }
                         }
 

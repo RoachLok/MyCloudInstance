@@ -66,15 +66,20 @@ Route::post('/email/verification-notification', function (Request $request) {
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
-Route::middleware(['auth:sanctum', 'is_admin'])->get('/user/mapview', function () {
+# Vista original. Se le cambia la funcionalidad. Permite el uso a usuarios que no son admin.
+Route::middleware(['auth:sanctum', 'verified'])->get('/user/mapview', function () {
     return view('geoanalysis.mapview');
 })->name('geoanalysis.mapview');
 
+# Copia de la vista de mapa que preserva la anterior funcionalidad
+Route::middleware(['auth:sanctum', 'is_admin'])->get('/user/mapview_old', function () {
+    return view('geoanalysis.mapview_old');
+})->name('geoanalysis.mapview_old');
 
 // UserLogs data queries.
-Route::middleware(['auth:sanctum', 'is_admin']) ->get('/login_logs/{test}'   , [UserLogs::class, 'index'])       ->name('userlogs.all'           );
-Route::middleware(['auth:sanctum', 'is_admin']) ->get('/list_users'          , [UserLogs::class, 'list_users'])  ->name('userlogs.userList'      );
-Route::middleware(['auth:sanctum', 'verified']) ->get('/login_logs'          , [UserLogs::class, 'user_logs'])   ->name('userlogs.user'          );
+Route::middleware(['auth:sanctum', 'is_admin']) ->get('/login_logs/{test}'  , [UserLogs::class, 'index'])       ->name('userlogs.all'           );
+Route::middleware(['auth:sanctum', 'is_admin']) ->get('/list_users'         , [UserLogs::class, 'list_users'])  ->name('userlogs.userList'      );
+Route::middleware(['auth:sanctum', 'verified']) ->get('/login_logs'         , [UserLogs::class, 'user_logs'])   ->name('userlogs.user'          );
 
 
 // Municipalities data queries.
@@ -85,7 +90,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/get_city/{from}'     , [M
 Route::middleware(['auth:sanctum', 'verified'])->get('/get_muni/{from}'     , [Municipalities::class, 'muni'])  ->name('municipalities.muni'    );
 
 // Geolocations data queries.
-Route::middleware(['auth:sanctum', 'is_admin'])->post('/login_locs'         , [Geolocations::class, 'index'])   ->name('geolocations.all'       );
+Route::middleware(['auth:sanctum', 'verified'])->post('/login_locs'         , [Geolocations::class, 'index'])   ->name('geolocations.all'       );
 
 
 Route::get('/test', function () {

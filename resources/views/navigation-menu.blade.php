@@ -1,4 +1,8 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100"  style="background-color: #212121 !important;">
+@if (request()->routeIs('geoanalysis.mapview'))
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100" style="background-color: #fab752 !important;">
+@else
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100" style="background-color: #212121 !important;">
+@endif
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" >
         <div class="flex justify-between h-16">
@@ -10,6 +14,32 @@
                     </a>
                 </div>
 
+                @if (request()->routeIs('geoanalysis.mapview'))
+                <!-- Navigation Links -->
+                <div class="hidden space-x-8 sm:-my-px sm:ml-6 sm:flex" >
+                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" style="color: #190f01;">
+                        {{ __('Dashboard') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')" style="color: #190f01;">
+                        {{ __('Profile') }}
+                    </x-jet-nav-link>
+                <!-- Se separa admin y usuario. El admin seguirá pudiendo acceder a la vista vieja "mapview_old"
+                    y a la original duplicada. Por otro lado el usuario que no es admin, solo podrá acceder a la 
+                    vista cambiada puesto que la copia preserva el rol de admin. --->
+                    @if (Auth::user()->is_admin) 
+                        <x-jet-nav-link href="{{ route('geoanalysis.mapview_old') }}" :active="request()->routeIs('geoanalysis.mapview_old')" style="color: #190f01;">
+                            {{ __('Mapview_old') }}
+                        </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('geoanalysis.mapview') }}" :active="request()->routeIs('geoanalysis.mapview')" style="color: #190f01;">
+                            {{ __('Mapview') }}
+                        </x-jet-nav-link>
+                    @else
+                        <x-jet-nav-link href="{{ route('geoanalysis.mapview') }}" :active="request()->routeIs('geoanalysis.mapview')" style="color: #190f01;">
+                            {{ __('Mapview') }}
+                        </x-jet-nav-link>
+                    @endif
+                </div>
+                @else
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-6 sm:flex" >
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" style="color: white;">
@@ -18,10 +48,23 @@
                     <x-jet-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')" style="color: white;">
                         {{ __('Profile') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('geoanalysis.mapview') }}" :active="request()->routeIs('geoanalysis.mapview')" style="color: white;">
-                        {{ __('Mapview') }}
-                    </x-jet-nav-link>
+                <!-- Se separa admin y usuario. El admin seguirá pudiendo acceder a la vista vieja "mapview_old"
+                    y a la original duplicada. Por otro lado el usuario que no es admin, solo podrá acceder a la 
+                    vista cambiada puesto que la copia preserva el rol de admin. --->
+                    @if (Auth::user()->is_admin) 
+                        <x-jet-nav-link href="{{ route('geoanalysis.mapview_old') }}" :active="request()->routeIs('geoanalysis.mapview_old')" style="color: white;">
+                            {{ __('Mapview_old') }}
+                        </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('geoanalysis.mapview') }}" :active="request()->routeIs('geoanalysis.mapview')" style="color: white;">
+                            {{ __('Mapview') }}
+                        </x-jet-nav-link>
+                    @else
+                        <x-jet-nav-link href="{{ route('geoanalysis.mapview') }}" :active="request()->routeIs('geoanalysis.mapview')" style="color: white;">
+                            {{ __('Mapview') }}
+                        </x-jet-nav-link>
+                    @endif
                 </div>
+                @endif
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
